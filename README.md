@@ -6,4 +6,6 @@ to detect activity via [perceptual hashing](https://en.wikipedia.org/wiki/Percep
 Currently it monitors a feed of [North Korea TV](https://kcnawatch.org/korea-central-tv-livestream/)
 and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 
-## Features / TOD
+## Features / TODO
+
+- [ ] [Roku Stream Tester](http://devtools.web.roku.com/stream_tester/html/index.html) l
