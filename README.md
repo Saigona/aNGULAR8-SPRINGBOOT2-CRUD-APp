@@ -8,4 +8,7 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 
 ## Features / TODO
 
-- [ ] [Roku Stream Tester](http://devtools.web.roku.com/stream_tester/html/index.html) l
+- [ ] [Roku Stream Tester](http://devtools.web.roku.com/stream_tester/html/index.html) launching *partially*
+    - [x] HTTP cache for segments *saves bandwidth*
+- [x] Twitter
+ 
