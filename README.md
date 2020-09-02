@@ -11,4 +11,6 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 - [ ] [Roku Stream Tester](http://devtools.web.roku.com/stream_tester/html/index.html) launching *partially*
     - [x] HTTP cache for segments *saves bandwidth*
 - [x] Twitter
-    - [ ] Command via DM *Increases rate, kill switch, change perceptual hashing th
+    - [ ] Command via DM *Increases rate, kill switch, change perceptual hashing threshold*
+    - [ ] Resume threads on restart.
+- [x] Process separation of ffmpeg /
