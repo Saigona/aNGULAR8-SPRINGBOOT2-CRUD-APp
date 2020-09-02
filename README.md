@@ -13,4 +13,5 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 - [x] Twitter
     - [ ] Command via DM *Increases rate, kill switch, change perceptual hashing threshold*
     - [ ] Resume threads on restart.
-- [x] Process separation of ffmpeg /
+- [x] Process separation of ffmpeg / CGO. *This deserves a writeup!*
+    - [Passing FDs over Unix sockets](https://github.com/mindrefra
