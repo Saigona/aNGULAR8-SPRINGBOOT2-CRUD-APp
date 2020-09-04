@@ -15,4 +15,4 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
     - [ ] Resume threads on restart.
 - [x] Process separation of ffmpeg / CGO. *This deserves a writeup!*
     - [Passing FDs over Unix sockets](https://github.com/mindreframer/golang-stuff/blob/master/github.com/youtube/vitess/go/umgmt/fdpass.go)
-    - [In
+    - [Internals of Go's new fuzzing system](https://jayconrod.com/posts/123/internals-of-go-s-new-fuzzing-system)
