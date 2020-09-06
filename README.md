@@ -17,4 +17,6 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
     - [Passing FDs over Unix sockets](https://github.com/mindreframer/golang-stuff/blob/master/github.com/youtube/vitess/go/umgmt/fdpass.go)
     - [Internals of Go's new fuzzing system](https://jayconrod.com/posts/123/internals-of-go-s-new-fuzzing-system) - example of how to use a child process as an rpc service
 - [x] Find the most interesting images *avoid blank screens*
-- [x] Tweak the perceptual hash thres
+- [x] Tweak the perceptual hash thresholds
+- [x] Revise the clunky FSM code.
+- [x] [Test pattern detection](https://twitter.com
