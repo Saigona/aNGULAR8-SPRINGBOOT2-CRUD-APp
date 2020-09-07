@@ -19,4 +19,10 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 - [x] Find the most interesting images *avoid blank screens*
 - [x] Tweak the perceptual hash thresholds
 - [x] Revise the clunky FSM code.
-- [x] [Test pattern detection](https://twitter.com
+- [x] [Test pattern detection](https://twitter.com/KCTV_bot/status/1496722859904978948)
+
+## State Machine
+
+![alt](./fsm.svg)
+
+## Cgo de
