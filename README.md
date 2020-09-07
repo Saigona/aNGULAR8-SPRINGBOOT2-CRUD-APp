@@ -25,4 +25,7 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 
 ![alt](./fsm.svg)
 
-## Cgo de
+## Cgo dependencies
+
+```bash
+sudo apt-get install -y libavfilter7 libavdevice58 libavformat-dev lib
