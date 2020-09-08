@@ -28,4 +28,4 @@ and [posts screencaps to Twitter](https://twitter.com/KCTV_bot).
 ## Cgo dependencies
 
 ```bash
-sudo apt-get install -y libavfilter7 libavdevice58 libavformat-dev lib
+sudo apt-get install -y libavfilter7 libavdevice58 libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libswresample-dev lib
