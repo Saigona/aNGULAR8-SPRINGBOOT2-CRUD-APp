@@ -34,4 +34,4 @@ sudo apt-get install -y libavfilter7 libavdevice58 libavformat-dev libavcodec-de
 # Known to work on
 
 - Ubuntu 21.10
-- macOS - ffmpeg li
+- macOS - ffmpeg libraries installed via Hombrew. Not validated recently; suspect a bunch of work to 
