@@ -70,3 +70,24 @@ func init() {
 		'u': {
 			cb: func(ctx context.Context) {
 				currentStream.PushEvent(ctx, "unsteady")
+			},
+			desc: "Push an unsteady event", // FIXME remove
+		},
+		'U': {
+			cb: func(c context.Context) {
+				currentStream.GetFSM().Event("unsteady_timer")
+			},
+			desc: "Go up immediately", // FIXME remove
+		},
+		'?': {
+			desc: "Help",
+			cb: func(c context.Context) {
+				keys := maps.Keys(keyMap)
+				slices.Sort(keys)
+				for _, k := range keys {
+					fmt.Printf("%s\t%s\n", string(k), keyMap[k].desc)
+				}
+			},
+		},
+	}
+}
