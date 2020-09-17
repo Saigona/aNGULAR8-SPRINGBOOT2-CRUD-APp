@@ -86,3 +86,89 @@
 </g>
 <!-- down&#45;&gt;going_up -->
 <g id="edge9" class="edge">
+<title>down&#45;&gt;going_up</title>
+<path fill="none" stroke="black" d="M158.04,-711.12C162.95,-698.86 168.67,-686.74 175.26,-675.79 181.67,-665.15 189.27,-654.69 197.39,-644.72"/>
+<polygon fill="black" stroke="black" points="200.26,-646.74 204.01,-636.83 194.9,-642.24 200.26,-646.74"/>
+<text text-anchor="middle" x="199.76" y="-679.59" font-family="Times,serif" font-size="14.00">unsteady</text>
+</g>
+<!-- going_up&#45;&gt;undefined -->
+<g id="edge17" class="edge">
+<title>going_up&#45;&gt;undefined</title>
+<path fill="none" stroke="black" d="M377.23,-617.82C410.55,-640.84 443.97,-671.33 462.26,-708.79 498.4,-782.77 500.39,-821.07 462.26,-894.05 442.14,-932.56 406.36,-962.78 370.26,-985.29"/>
+<polygon fill="black" stroke="black" points="368.31,-982.38 361.58,-990.56 371.94,-988.36 368.31,-982.38"/>
+<text text-anchor="middle" x="528.76" y="-797.72" font-family="Times,serif" font-size="14.00">no_data_timer</text>
+</g>
+<!-- going_up&#45;&gt;down -->
+<g id="edge19" class="edge">
+<title>going_up&#45;&gt;down</title>
+<path fill="none" stroke="black" d="M244.25,-653.89C238.14,-666.57 231.42,-679.22 224.26,-690.79 218.11,-700.73 211.13,-710.74 203.83,-720.45"/>
+<polygon fill="black" stroke="black" points="200.94,-718.46 197.64,-728.52 206.5,-722.72 200.94,-718.46"/>
+<text text-anchor="middle" x="266.76" y="-679.59" font-family="Times,serif" font-size="14.00">steady_timer</text>
+</g>
+<!-- going_up&#45;&gt;going_up -->
+<g id="edge16" class="edge">
+<title>going_up&#45;&gt;going_up</title>
+<path fill="none" stroke="black" d="M397.93,-571.07C409.04,-569.85 416.06,-567.88 416.06,-565.15 416.06,-563.37 413.04,-561.9 407.82,-560.76"/>
+<polygon fill="black" stroke="black" points="408.35,-557.3 397.93,-559.24 407.28,-564.22 408.35,-557.3"/>
+<text text-anchor="middle" x="437.56" y="-561.45" font-family="Times,serif" font-size="14.00">no_data</text>
+</g>
+<!-- going_up&#45;&gt;going_up -->
+<g id="edge18" class="edge">
+<title>going_up&#45;&gt;going_up</title>
+<path fill="none" stroke="black" d="M396.97,-579.82C431.59,-579.15 459.06,-574.26 459.06,-565.15 459.06,-556.98 436.89,-552.2 407.27,-550.82"/>
+<polygon fill="black" stroke="black" points="407.07,-547.31 396.97,-550.49 406.85,-554.31 407.07,-547.31"/>
+<text text-anchor="middle" x="476.56" y="-561.45" font-family="Times,serif" font-size="14.00">steady</text>
+</g>
+<!-- going_up&#45;&gt;going_up -->
+<g id="edge20" class="edge">
+<title>going_up&#45;&gt;going_up</title>
+<path fill="none" stroke="black" d="M394.74,-587.08C446.88,-588.62 494.06,-581.32 494.06,-565.15 494.06,-550.03 452.76,-542.66 404.75,-543.04"/>
+<polygon fill="black" stroke="black" points="404.67,-539.54 394.74,-543.23 404.8,-546.54 404.67,-539.54"/>
+<text text-anchor="middle" x="518.56" y="-561.45" font-family="Times,serif" font-size="14.00">unsteady</text>
+</g>
+<!-- up -->
+<g id="node5" class="node">
+<title>up</title>
+<ellipse fill="none" stroke="black" cx="283.26" cy="-328.89" rx="91.85" ry="92.76"/>
+<text text-anchor="middle" x="283.26" y="-325.19" font-family="Times,serif" font-size="14.00">up</text>
+</g>
+<!-- going_up&#45;&gt;up -->
+<g id="edge21" class="edge">
+<title>going_up&#45;&gt;up</title>
+<path fill="none" stroke="black" d="M280.83,-472.24C281.06,-458.96 281.29,-445.23 281.52,-431.77"/>
+<polygon fill="black" stroke="black" points="285.03,-431.6 281.7,-421.54 278.03,-431.48 285.03,-431.6"/>
+<text text-anchor="middle" x="323.76" y="-443.32" font-family="Times,serif" font-size="14.00">unsteady_timer</text>
+</g>
+<!-- going_down -->
+<g id="node4" class="node">
+<title>going_down</title>
+<ellipse fill="none" stroke="black" cx="182.26" cy="-92.63" rx="130.22" ry="92.76"/>
+<text text-anchor="middle" x="182.26" y="-88.93" font-family="Times,serif" font-size="14.00">going_down</text>
+</g>
+<!-- going_down&#45;&gt;undefined -->
+<g id="edge11" class="edge">
+<title>going_down&#45;&gt;undefined</title>
+<path fill="none" stroke="black" d="M93.09,-160.19C47.4,-202.4 1.26,-261.46 1.26,-327.89 1.26,-802.42 1.26,-802.42 1.26,-802.42 1.26,-844.01 -3.79,-860.12 20.26,-894.05 50.08,-936.1 96.57,-967.97 140.5,-990.8"/>
+<polygon fill="black" stroke="black" points="139.04,-993.98 149.54,-995.39 142.21,-987.74 139.04,-993.98"/>
+<text text-anchor="middle" x="40.76" y="-561.45" font-family="Times,serif" font-size="14.00">no_data_timer</text>
+</g>
+<!-- going_down&#45;&gt;down -->
+<g id="edge13" class="edge">
+<title>going_down&#45;&gt;down</title>
+<path fill="none" stroke="black" d="M157.64,-183.66C156.33,-190.26 155.19,-196.85 154.26,-203.26 129.5,-375.75 128.19,-578.98 130.22,-698.35"/>
+<polygon fill="black" stroke="black" points="126.73,-698.64 130.41,-708.57 133.72,-698.51 126.73,-698.64"/>
+<text text-anchor="middle" x="168.76" y="-443.32" font-family="Times,serif" font-size="14.00">steady_timer</text>
+</g>
+<!-- going_down&#45;&gt;going_down -->
+<g id="edge10" class="edge">
+<title>going_down&#45;&gt;going_down</title>
+<path fill="none" stroke="black" d="M312,-101.3C323.3,-99.47 330.37,-96.58 330.37,-92.63 330.37,-90.04 327.33,-87.91 322.04,-86.23"/>
+<polygon fill="black" stroke="black" points="322.53,-82.75 312,-83.96 320.98,-89.58 322.53,-82.75"/>
+<text text-anchor="middle" x="351.87" y="-88.93" font-family="Times,serif" font-size="14.00">no_data</text>
+</g>
+<!-- going_down&#45;&gt;going_down -->
+<g id="edge12" class="edge">
+<title>going_down&#45;&gt;going_down</title>
+<path fill="none" stroke="black" d="M308.94,-114.59C345.02,-113.43 373.37,-106.11 373.37,-92.63 373.37,-80.47 350.29,-73.32 319.27,-71.19"/>
+<polygon fill="black" stroke="black" points="319.11,-67.67 308.94,-70.67 318.76,-74.66 319.11,-67.67"/>
+<text text-anchor="middle" x="390.87" y="-88.93" font-family="Times,serif" font-size="14.00">steady</text>
