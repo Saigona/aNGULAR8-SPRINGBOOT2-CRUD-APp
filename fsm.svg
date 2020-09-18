@@ -172,3 +172,62 @@
 <path fill="none" stroke="black" d="M308.94,-114.59C345.02,-113.43 373.37,-106.11 373.37,-92.63 373.37,-80.47 350.29,-73.32 319.27,-71.19"/>
 <polygon fill="black" stroke="black" points="319.11,-67.67 308.94,-70.67 318.76,-74.66 319.11,-67.67"/>
 <text text-anchor="middle" x="390.87" y="-88.93" font-family="Times,serif" font-size="14.00">steady</text>
+</g>
+<!-- going_down&#45;&gt;up -->
+<g id="edge14" class="edge">
+<title>going_down&#45;&gt;up</title>
+<path fill="none" stroke="black" d="M203.72,-184.19C207.42,-195.83 211.6,-207.45 216.26,-218.26 219.7,-226.22 223.64,-234.29 227.84,-242.26"/>
+<polygon fill="black" stroke="black" points="224.85,-244.07 232.7,-251.19 231,-240.73 224.85,-244.07"/>
+<text text-anchor="middle" x="240.76" y="-207.06" font-family="Times,serif" font-size="14.00">unsteady</text>
+</g>
+<!-- going_down&#45;&gt;up -->
+<g id="edge15" class="edge">
+<title>going_down&#45;&gt;up</title>
+<path fill="none" stroke="black" d="M249.05,-172.52C255.29,-182.44 260.89,-192.8 265.26,-203.26 268.38,-210.72 270.97,-218.62 273.12,-226.69"/>
+<polygon fill="black" stroke="black" points="269.77,-227.7 275.54,-236.58 276.57,-226.04 269.77,-227.7"/>
+<text text-anchor="middle" x="311.76" y="-207.06" font-family="Times,serif" font-size="14.00">unsteady_timer</text>
+</g>
+<!-- up&#45;&gt;undefined -->
+<g id="edge23" class="edge">
+<title>up&#45;&gt;undefined</title>
+<path fill="none" stroke="black" d="M374.07,-345.3C445.86,-362.78 541.51,-399.04 588.26,-472.52 632.47,-541.99 591.05,-575.49 588.26,-657.79 584.71,-762.97 632.26,-807.58 572.26,-894.05 529.04,-956.34 451.81,-991.88 384.63,-1011.91"/>
+<polygon fill="black" stroke="black" points="383.43,-1008.61 374.8,-1014.75 385.38,-1015.33 383.43,-1008.61"/>
+<text text-anchor="middle" x="627.76" y="-679.59" font-family="Times,serif" font-size="14.00">no_data_timer</text>
+</g>
+<!-- up&#45;&gt;going_down -->
+<g id="edge22" class="edge">
+<title>up&#45;&gt;going_down</title>
+<path fill="none" stroke="black" d="M207.43,-276.16C189.61,-259.9 173,-240.34 163.26,-218.26 159.81,-210.42 157.85,-202.05 157.02,-193.52"/>
+<polygon fill="black" stroke="black" points="160.51,-193.26 156.54,-183.43 153.52,-193.59 160.51,-193.26"/>
+<text text-anchor="middle" x="184.76" y="-207.06" font-family="Times,serif" font-size="14.00">no_data</text>
+</g>
+<!-- up&#45;&gt;going_down -->
+<g id="edge25" class="edge">
+<title>up&#45;&gt;going_down</title>
+<path fill="none" stroke="black" d="M350.05,-264.99C363.03,-245.38 369.54,-223.57 358.26,-203.26 345.33,-179.96 325.15,-160.97 303,-145.74"/>
+<polygon fill="black" stroke="black" points="304.71,-142.67 294.43,-140.08 300.85,-148.51 304.71,-142.67"/>
+<text text-anchor="middle" x="398.76" y="-207.06" font-family="Times,serif" font-size="14.00">steady_timer</text>
+</g>
+<!-- up&#45;&gt;up -->
+<g id="edge24" class="edge">
+<title>up&#45;&gt;up</title>
+<path fill="none" stroke="black" d="M375.07,-335.23C386.03,-334.08 393.19,-331.97 393.19,-328.89 393.19,-326.92 390.25,-325.35 385.26,-324.17"/>
+<polygon fill="black" stroke="black" points="385.5,-320.66 375.07,-322.56 384.4,-327.58 385.5,-320.66"/>
+<text text-anchor="middle" x="410.69" y="-325.19" font-family="Times,serif" font-size="14.00">steady</text>
+</g>
+<!-- up&#45;&gt;up -->
+<g id="edge26" class="edge">
+<title>up&#45;&gt;up</title>
+<path fill="none" stroke="black" d="M374.24,-343.63C404,-343.37 428.19,-338.46 428.19,-328.89 428.19,-320.45 409.33,-315.63 384.44,-314.44"/>
+<polygon fill="black" stroke="black" points="384.33,-310.93 374.24,-314.15 384.14,-317.93 384.33,-310.93"/>
+<text text-anchor="middle" x="452.69" y="-325.19" font-family="Times,serif" font-size="14.00">unsteady</text>
+</g>
+<!-- up&#45;&gt;up -->
+<g id="edge27" class="edge">
+<title>up&#45;&gt;up</title>
+<path fill="none" stroke="black" d="M372.9,-350.16C425.12,-353.64 477.19,-346.55 477.19,-328.89 477.19,-312.37 431.62,-305.1 382.98,-307.09"/>
+<polygon fill="black" stroke="black" points="382.69,-303.6 372.9,-307.63 383.07,-310.59 382.69,-303.6"/>
+<text text-anchor="middle" x="519.69" y="-325.19" font-family="Times,serif" font-size="14.00">unsteady_timer</text>
+</g>
+</g>
+</svg>
