@@ -9,4 +9,6 @@ require (
 	github.com/dghubble/oauth1 v0.7.1
 	github.com/die-net/lrucache v0.0.0-20190707192454-883874fe3947
 	github.com/eliukblau/pixterm v1.3.1
-	github.
+	github.com/giorgisio/goav v0.1.0
+	github.com/grafov/m3u8 v0.11.1
+	github.com/gregjon
