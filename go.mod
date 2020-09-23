@@ -11,4 +11,6 @@ require (
 	github.com/eliukblau/pixterm v1.3.1
 	github.com/giorgisio/goav v0.1.0
 	github.com/grafov/m3u8 v0.11.1
-	github.com/gregjon
+	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79
+	github.com/joho/godotenv v1.4.0
+	github.com/loopl
