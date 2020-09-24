@@ -13,4 +13,7 @@ require (
 	github.com/grafov/m3u8 v0.11.1
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79
 	github.com/joho/godotenv v1.4.0
-	github.com/loopl
+	github.com/looplab/fsm v0.2.0
+	github.com/mattn/go-tty v0.0.4
+	github.com/pkg/errors v0.9.1
+	githu
