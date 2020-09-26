@@ -25,4 +25,5 @@ require (
 )
 
 require (
-	gi
+	github.com/cenkalti/backoff v2.1.1+incompatible // indirect
+	github.com/dghu
