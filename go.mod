@@ -26,4 +26,6 @@ require (
 
 require (
 	github.com/cenkalti/backoff v2.1.1+incompatible // indirect
-	github.com/dghu
+	github.com/dghubble/sling v1.4.0 // indirect
+	github.com/disintegration/imaging v1.6.2 // indirect
+	gi
