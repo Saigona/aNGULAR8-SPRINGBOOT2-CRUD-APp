@@ -28,4 +28,5 @@ require (
 	github.com/cenkalti/backoff v2.1.1+incompatible // indirect
 	github.com/dghubble/sling v1.4.0 // indirect
 	github.com/disintegration/imaging v1.6.2 // indirect
-	gi
+	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/gorilla/websocket v1.5.0 /
