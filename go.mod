@@ -29,4 +29,6 @@ require (
 	github.com/dghubble/sling v1.4.0 // indirect
 	github.com/disintegration/imaging v1.6.2 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
-	github.com/gorilla/websocket v1.5.0 /
+	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/koron/go-ssdp v0.0.2 // indirect
+	github.com/lucasb-eyer/go-
