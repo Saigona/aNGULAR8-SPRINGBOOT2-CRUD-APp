@@ -31,4 +31,5 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/koron/go-ssdp v0.0.2 // indirect
-	github.com/lucasb-eyer/go-
+	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
+	github.com/mattn/go-isatty v0.0.10 // ind
