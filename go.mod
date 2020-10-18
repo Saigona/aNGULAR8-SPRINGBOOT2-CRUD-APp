@@ -36,4 +36,5 @@ require (
 	github.com/mattn/go-mastodon v0.0.6 // indirect
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/tomnomnom/linkheader v0.0.0-20180905144013-02ca5825eb80 // indirect
-	golang.org/x/image v0.0.0-20210504121937-7319ad
+	golang.org/x/image v0.0.0-20210504121937-7319ad40d33e // indirect
+	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
