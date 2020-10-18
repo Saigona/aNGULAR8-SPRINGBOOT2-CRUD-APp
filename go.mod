@@ -38,3 +38,7 @@ require (
 	github.com/tomnomnom/linkheader v0.0.0-20180905144013-02ca5825eb80 // indirect
 	golang.org/x/image v0.0.0-20210504121937-7319ad40d33e // indirect
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
+)
+
+// https://github.com/dghubble/go-twitter/pull/148
+replace github.com/dghubble/go-twi
