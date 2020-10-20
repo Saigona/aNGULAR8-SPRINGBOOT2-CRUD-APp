@@ -41,4 +41,4 @@ require (
 )
 
 // https://github.com/dghubble/go-twitter/pull/148
-replace github.com/dghubble/go-twi
+replace github.com/dghubble/go-twitter => github.com/janisz/go-twitter v0.0.0-20201206102041-3fe237ed29f3
