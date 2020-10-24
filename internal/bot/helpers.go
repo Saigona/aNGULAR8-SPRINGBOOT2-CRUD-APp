@@ -9,4 +9,6 @@ import (
 	"github.com/pkg/errors"
 )
 
-v
+var loc = func() *time.Location {
+	l, err := time.LoadLocation("Asia/Pyongyang")
+	
