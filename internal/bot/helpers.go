@@ -17,4 +17,6 @@ var loc = func() *time.Location {
 	return l
 }()
 
-func getLastTweet(c *twitter.Client) (int64, time.T
+func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
+	u, _, err := c.Accounts.VerifyCredentials(&twitter.AccountVerifyParams{
+		Include
