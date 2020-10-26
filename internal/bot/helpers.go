@@ -11,4 +11,10 @@ import (
 
 var loc = func() *time.Location {
 	l, err := time.LoadLocation("Asia/Pyongyang")
-	
+	if err != nil {
+		panic(err)
+	}
+	return l
+}()
+
+func getLastTweet(c *twitter.Client) (int64, time.T
