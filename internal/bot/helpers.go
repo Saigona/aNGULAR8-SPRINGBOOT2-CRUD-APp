@@ -19,4 +19,7 @@ var loc = func() *time.Location {
 
 func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
 	u, _, err := c.Accounts.VerifyCredentials(&twitter.AccountVerifyParams{
-		Include
+		IncludeEntities: twitter.Bool(true),
+	})
+	if err != nil {
+		return 0, time.Time{}, errors.Wrap(e
