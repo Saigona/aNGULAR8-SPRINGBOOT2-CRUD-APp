@@ -24,4 +24,6 @@ func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
 	if err != nil {
 		return 0, time.Time{}, errors.Wrap(err, "VerifyCredentials")
 	}
-	tws, _, err := c.Timelines.UserTimeline(&twitte
+	tws, _, err := c.Timelines.UserTimeline(&twitter.UserTimelineParams{UserID: u.ID, Count: 1})
+	if len(tws) == 0 {
+		retu
