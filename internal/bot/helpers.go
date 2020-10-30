@@ -22,4 +22,6 @@ func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
 		IncludeEntities: twitter.Bool(true),
 	})
 	if err != nil {
-		return 0, time.Time{}, errors.Wrap(e
+		return 0, time.Time{}, errors.Wrap(err, "VerifyCredentials")
+	}
+	tws, _, err := c.Timelines.UserTimeline(&twitte
