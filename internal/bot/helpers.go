@@ -26,4 +26,7 @@ func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
 	}
 	tws, _, err := c.Timelines.UserTimeline(&twitter.UserTimelineParams{UserID: u.ID, Count: 1})
 	if len(tws) == 0 {
-		retu
+		return 0, time.Time{}, errors.New("no tweets")
+	}
+	tw := tws[0]
+	tm, err := time.Parse(
