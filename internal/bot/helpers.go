@@ -29,4 +29,6 @@ func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
 		return 0, time.Time{}, errors.New("no tweets")
 	}
 	tw := tws[0]
-	tm, err := time.Parse(
+	tm, err := time.Parse(time.RubyDate, tw.CreatedAt)
+	if err != nil {
+		return 0, time.Time{},
