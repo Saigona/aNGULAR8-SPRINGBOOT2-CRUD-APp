@@ -44,4 +44,6 @@ func (b *Bot) getLastTweetMaybe(ctx context.Context) {
 		return
 	}
 	log.WithField("age", time.Now().Sub(tm)).Info("found old tweet")
-	b.las
+	b.lastID = id
+	b.lastPosted = tm
+}
