@@ -38,4 +38,6 @@ func getLastTweet(c *twitter.Client) (int64, time.Time, error) {
 
 func (b *Bot) getLastTweetMaybe(ctx context.Context) {
 	log := logger.Entry(ctx)
-	id, tm, err :=
+	id, tm, err := getLastTweet(b.client)
+	if err != nil {
+		log.WithError(err).Warn("getLastTweet
