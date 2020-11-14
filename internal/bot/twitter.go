@@ -14,4 +14,6 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-cons
+const (
+	TWITTER_CONSUMER_KEY    = "TWITTER_CONSUMER_KEY"
+	TWITTER_CONSUMER_SECRET = "T
