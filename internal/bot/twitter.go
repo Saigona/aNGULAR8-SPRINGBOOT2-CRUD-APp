@@ -21,4 +21,5 @@ const (
 	TWITTER_ACCESS_SECRET   = "TWITTER_ACCESS_SECRET"
 
 	updateIntervalMinutes = 10
-	updateInterval        = 
+	updateInterval        = updateIntervalMinutes * time.Minute
+	minUpdateInterval     = 20 * time.Second // 
