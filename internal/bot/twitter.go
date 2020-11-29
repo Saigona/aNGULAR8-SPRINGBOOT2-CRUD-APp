@@ -25,4 +25,4 @@ const (
 	minUpdateInterval     = 20 * time.Second // used for tweeting quickly after a manual restart
 	numImages             = 1                // per post, think 4 is max for twitter
 	maxQueuedIntervals    = 4
-	maxQueuedImages   
+	maxQueuedImages       = 25 * updateIntervalMinutes * 60 * maxQueuedIntervals * ImageFraction // about 4 u
