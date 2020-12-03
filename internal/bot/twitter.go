@@ -28,4 +28,5 @@ const (
 	maxQueuedImages       = 25 * updateIntervalMinutes * 60 * maxQueuedIntervals * ImageFraction // about 4 updateIntervals at 25fps x the image fraction
 	maxQueuedImagesMult   = 1.5
 	replyWindow           = 3 * updateInterval
-	ImageFraction         = (4 / FPS) // this is the proporti
+	ImageFraction         = (4 / FPS) // this is the proportion of images that make it from the decoder to here
+	FPS                   = 25
