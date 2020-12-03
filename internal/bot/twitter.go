@@ -27,4 +27,5 @@ const (
 	maxQueuedIntervals    = 4
 	maxQueuedImages       = 25 * updateIntervalMinutes * 60 * maxQueuedIntervals * ImageFraction // about 4 updateIntervals at 25fps x the image fraction
 	maxQueuedImagesMult   = 1.5
-	replyWindow     
+	replyWindow           = 3 * updateInterval
+	ImageFraction         = (4 / FPS) // this is the proporti
