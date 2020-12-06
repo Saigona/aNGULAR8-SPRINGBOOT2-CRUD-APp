@@ -29,4 +29,9 @@ const (
 	maxQueuedImagesMult   = 1.5
 	replyWindow           = 3 * updateInterval
 	ImageFraction         = (4 / FPS) // this is the proportion of images that make it from the decoder to here
-	FPS                   = 25
+	FPS                   = 25.0      // assume source is 25 fps PAL
+	postTimeout           = 1 * time.Minute
+)
+
+var (
+	_, b
