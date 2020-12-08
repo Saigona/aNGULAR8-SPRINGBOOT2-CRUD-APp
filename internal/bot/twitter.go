@@ -37,4 +37,8 @@ var (
 	_, b, _, _ = runtime.Caller(0)
 
 	// root folder of this project. TODO: does not work with trimpath or builds
-	roo
+	root = filepath.Join(filepath.Dir(b), "../..")
+)
+
+func newClient() *twitter.Client {
+	pa
