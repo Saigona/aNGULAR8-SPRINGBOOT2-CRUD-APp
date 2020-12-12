@@ -41,4 +41,9 @@ var (
 )
 
 func newClient() *twitter.Client {
-	pa
+	path := root + "/.env"
+	myEnv, err := godotenv.Read(path)
+
+	if err != nil {
+		panic(err)
+	}
