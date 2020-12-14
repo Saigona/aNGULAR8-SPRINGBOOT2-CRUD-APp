@@ -47,3 +47,6 @@ func newClient() *twitter.Client {
 	if err != nil {
 		panic(err)
 	}
+
+	consumerKey := myEnv["TWITTER_CONSUMER_KEY"]
+	consumerSecret := myEnv["TWITTER_CONSUMER_SE
