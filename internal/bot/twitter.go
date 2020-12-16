@@ -51,4 +51,9 @@ func newClient() *twitter.Client {
 	consumerKey := myEnv["TWITTER_CONSUMER_KEY"]
 	consumerSecret := myEnv["TWITTER_CONSUMER_SECRET"]
 	accessToken := myEnv["TWITTER_ACCESS_TOKEN"]
-	accessSecret := myEnv["TWITTER_ACCESS
+	accessSecret := myEnv["TWITTER_ACCESS_SECRET"]
+	if accessSecret == "" {
+		return nil
+	}
+
+	config := oauth1.NewConfig(consumerKey, co
