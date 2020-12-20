@@ -56,4 +56,6 @@ func newClient() *twitter.Client {
 		return nil
 	}
 
-	config := oauth1.NewConfig(consumerKey, co
+	config := oauth1.NewConfig(consumerKey, consumerSecret)
+	token := oauth1.NewToken(accessToken, accessSecret)
+	httpClie
