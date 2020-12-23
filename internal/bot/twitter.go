@@ -58,4 +58,6 @@ func newClient() *twitter.Client {
 
 	config := oauth1.NewConfig(consumerKey, consumerSecret)
 	token := oauth1.NewToken(accessToken, accessSecret)
-	httpClie
+	httpClient := config.Client(oauth1.NoContext, token) // TODO use a real context?
+
+	r
