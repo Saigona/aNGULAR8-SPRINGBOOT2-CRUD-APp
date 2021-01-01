@@ -65,4 +65,10 @@ func newClient() *twitter.Client {
 
 type Bot struct {
 	client     *twitter.Client
-	c  
+	c          chan image.Image
+	lastPosted time.Time
+	lastID     int64
+}
+
+func NewBot() *Bot {
+	b :
