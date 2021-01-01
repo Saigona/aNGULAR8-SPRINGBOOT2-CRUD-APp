@@ -60,4 +60,9 @@ func newClient() *twitter.Client {
 	token := oauth1.NewToken(accessToken, accessSecret)
 	httpClient := config.Client(oauth1.NoContext, token) // TODO use a real context?
 
-	r
+	return twitter.NewClient(httpClient)
+}
+
+type Bot struct {
+	client     *twitter.Client
+	c  
