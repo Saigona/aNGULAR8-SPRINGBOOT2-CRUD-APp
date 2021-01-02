@@ -71,4 +71,6 @@ type Bot struct {
 }
 
 func NewBot() *Bot {
-	b :
+	b := &Bot{
+		client: newClient(),
+		c:      make(chan image.Image, 100), // T
