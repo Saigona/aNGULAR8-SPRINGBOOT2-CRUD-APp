@@ -88,4 +88,8 @@ func (b *Bot) Run(ctx context.Context) error {
 	return g.Wait()
 }
 
-func (b *Bot)
+func (b *Bot) Chan() chan<- image.Image {
+	return b.c
+}
+
+func (b *Bot) consumeImages(ctx con
