@@ -81,4 +81,6 @@ func NewBot() *Bot {
 	return b
 }
 
-func (b *Bot) Run(ctx co
+func (b *Bot) Run(ctx context.Context) error {
+	g, ctx := errgroup.WithContext(ctx)
+	b.getLastTweetMaybe(ctx)
