@@ -84,3 +84,8 @@ func NewBot() *Bot {
 func (b *Bot) Run(ctx context.Context) error {
 	g, ctx := errgroup.WithContext(ctx)
 	b.getLastTweetMaybe(ctx)
+	g.Go(func() error { return b.consumeImages(ctx) })
+	return g.Wait()
+}
+
+func (b *Bot)
