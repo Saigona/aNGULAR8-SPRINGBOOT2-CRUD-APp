@@ -73,4 +73,12 @@ type Bot struct {
 func NewBot() *Bot {
 	b := &Bot{
 		client: newClient(),
-		c:      make(chan image.Image, 100), // T
+		c:      make(chan image.Image, 100), // TODO magic number
+	}
+	if b.client == nil {
+		return nil
+	}
+	return b
+}
+
+func (b *Bot) Run(ctx co
