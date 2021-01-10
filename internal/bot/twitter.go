@@ -92,4 +92,7 @@ func (b *Bot) Chan() chan<- image.Image {
 	return b.c
 }
 
-func (b *Bot) consumeImages(ctx con
+func (b *Bot) consumeImages(ctx context.Context) error {
+	log := logger.Entry(ctx)
+
+	newImageSlice :
