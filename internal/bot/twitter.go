@@ -95,4 +95,6 @@ func (b *Bot) Chan() chan<- image.Image {
 func (b *Bot) consumeImages(ctx context.Context) error {
 	log := logger.Entry(ctx)
 
-	newImageSlice :
+	newImageSlice := func() []imageRecord { return make([]imageRecord, 0, maxQueuedImages) }
+
+	images := newImag
