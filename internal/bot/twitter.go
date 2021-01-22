@@ -97,4 +97,8 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 
 	newImageSlice := func() []imageRecord { return make([]imageRecord, 0, maxQueuedImages) }
 
-	images := newImag
+	images := newImageSlice()
+
+	ticker := time.NewTicker(b.calcUpdateInterval(ctx))
+	defer ticker.Stop()
+	u
