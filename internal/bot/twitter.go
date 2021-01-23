@@ -101,4 +101,7 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 
 	ticker := time.NewTicker(b.calcUpdateInterval(ctx))
 	defer ticker.Stop()
-	u
+	unusedImagesC := make(chan []imageRecord, 1)
+	defer close(unusedImagesC)
+	for {
+		select {
