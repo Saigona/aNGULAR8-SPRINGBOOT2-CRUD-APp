@@ -105,3 +105,7 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 	defer close(unusedImagesC)
 	for {
 		select {
+		case <-ctx.Done():
+			return nil
+		case img, ok := <-b.c:
+			if !ok {
