@@ -109,3 +109,8 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 			return nil
 		case img, ok := <-b.c:
 			if !ok {
+				return nil
+			}
+			images = append(images, imageRecord{
+				image: img,
+				
