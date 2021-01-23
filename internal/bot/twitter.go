@@ -113,4 +113,6 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 			}
 			images = append(images, imageRecord{
 				image: img,
-				
+				time:  time.Now(),
+			})
+			log.WithField("num_images", len(images)).Trace("receiv
