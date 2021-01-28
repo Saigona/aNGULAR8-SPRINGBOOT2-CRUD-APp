@@ -119,4 +119,8 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 		case imgs := <-unusedImagesC:
 			if len(imgs) > 0 {
 				log.WithField("num_images", len(imgs)).Warn("unused images retained")
-				images = append(imgs, images...) // 
+				images = append(imgs, images...) // unused images get moved to the front
+			}
+		case <-ticker.C:
+			srcImages := images
+			images = newImageSlice()
