@@ -124,3 +124,7 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 		case <-ticker.C:
 			srcImages := images
 			images = newImageSlice()
+			go func() {
+				ctx, cancel := context.WithTimeout(ctx, postTimeout)
+				defer cancel()
+		
