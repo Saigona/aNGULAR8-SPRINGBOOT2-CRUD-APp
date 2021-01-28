@@ -118,4 +118,5 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 			log.WithField("num_images", len(images)).Trace("receiving image")
 		case imgs := <-unusedImagesC:
 			if len(imgs) > 0 {
-				log.WithField(
+				log.WithField("num_images", len(imgs)).Warn("unused images retained")
+				images = append(imgs, images...) // 
