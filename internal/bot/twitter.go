@@ -128,4 +128,7 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 				ctx, cancel := context.WithTimeout(ctx, postTimeout)
 				defer cancel()
 				unusedImages, err := b.maybeDoPost(ctx, srcImages)
-				// this runs in a goroutine because image 
+				// this runs in a goroutine because image uploading is slow
+				if err != nil {
+					log.WithError(err).Warn("maybeDoPost")
+	
