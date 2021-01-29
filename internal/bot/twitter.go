@@ -127,4 +127,5 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 			go func() {
 				ctx, cancel := context.WithTimeout(ctx, postTimeout)
 				defer cancel()
-		
+				unusedImages, err := b.maybeDoPost(ctx, srcImages)
+				// this runs in a goroutine because image 
