@@ -131,4 +131,8 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 				// this runs in a goroutine because image uploading is slow
 				if err != nil {
 					log.WithError(err).Warn("maybeDoPost")
-	
+				}
+				select {
+				case unusedImagesC <- unusedImages:
+				default:
+					log.War
