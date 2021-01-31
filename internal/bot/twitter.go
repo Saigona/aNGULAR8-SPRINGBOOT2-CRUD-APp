@@ -135,4 +135,6 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 				select {
 				case unusedImagesC <- unusedImages:
 				default:
-					log.War
+					log.Warn("unused images discarded")
+				}
+				ticker.Reset(b.calcUpdateInt
