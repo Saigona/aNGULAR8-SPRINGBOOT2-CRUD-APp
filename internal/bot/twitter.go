@@ -137,4 +137,8 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 				default:
 					log.Warn("unused images discarded")
 				}
-				ticker.Reset(b.calcUpdateInt
+				ticker.Reset(b.calcUpdateInterval(ctx))
+			}()
+		}
+		limit := len(images) - maxQueuedImages*maxQueuedImagesMult
+		if limit > 0
