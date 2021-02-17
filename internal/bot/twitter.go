@@ -150,4 +150,5 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 	}
 }
 
-func (b *Bot) calcU
+func (b *Bot) calcUpdateInterval(ctx context.Context) (dur time.Duration) {
+	log := logger.Entry(ctx)
