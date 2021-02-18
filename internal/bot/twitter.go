@@ -155,4 +155,5 @@ func (b *Bot) calcUpdateInterval(ctx context.Context) (dur time.Duration) {
 	defer func() {
 		log.WithField("tweet_in", dur).Debug("calcUpdateInterval")
 	}()
-	if !b.lastPos
+	if !b.lastPosted.IsZero() {
+		// try to post something quickly after manual restarts
