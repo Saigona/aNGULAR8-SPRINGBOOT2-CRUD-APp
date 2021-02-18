@@ -152,3 +152,7 @@ func (b *Bot) consumeImages(ctx context.Context) error {
 
 func (b *Bot) calcUpdateInterval(ctx context.Context) (dur time.Duration) {
 	log := logger.Entry(ctx)
+	defer func() {
+		log.WithField("tweet_in", dur).Debug("calcUpdateInterval")
+	}()
+	if !b.lastPos
