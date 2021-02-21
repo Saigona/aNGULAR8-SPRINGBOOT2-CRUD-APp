@@ -158,4 +158,8 @@ func (b *Bot) calcUpdateInterval(ctx context.Context) (dur time.Duration) {
 	if !b.lastPosted.IsZero() {
 		// try to post something quickly after manual restarts
 		durSinceLast := time.Now().Sub(b.lastPosted)
-		interval := updateInterval 
+		interval := updateInterval - durSinceLast
+		if interval < minUpdateInterval {
+			interval = minUpdateInterval
+		}
+		return int
