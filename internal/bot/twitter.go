@@ -162,4 +162,10 @@ func (b *Bot) calcUpdateInterval(ctx context.Context) (dur time.Duration) {
 		if interval < minUpdateInterval {
 			interval = minUpdateInterval
 		}
-		return int
+		return interval
+	}
+	log.Warn("no last posted")
+	return minUpdateInterval
+}
+
+// imageRecor
