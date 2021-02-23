@@ -169,4 +169,7 @@ func (b *Bot) calcUpdateInterval(ctx context.Context) (dur time.Duration) {
 }
 
 // imageRecord contains an image with some annotations (so we don't post 4 photos from the same segment)
-type im
+type imageRecord struct {
+	image image.Image
+	time  time.Time
+}
