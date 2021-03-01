@@ -20,4 +20,7 @@ func TestParseDate(t *testing.T) {
 }
 func TestResume(t *testing.T) {
 	c := newClient()
-	u
+	u, tm, err := getLastTweet(c)
+	if err != nil {
+		if err != nil {
+			t.Fatalf("getLastTweet %v"
