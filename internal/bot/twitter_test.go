@@ -23,4 +23,12 @@ func TestResume(t *testing.T) {
 	u, tm, err := getLastTweet(c)
 	if err != nil {
 		if err != nil {
-			t.Fatalf("getLastTweet %v"
+			t.Fatalf("getLastTweet %v", err)
+		}
+	}
+	fmt.Println(u, tm)
+}
+
+func TestTZ(t *testing.T) {
+	n := time.Now().In(loc)
+	fmt.Println(n.Fo
