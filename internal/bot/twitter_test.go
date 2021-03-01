@@ -14,4 +14,10 @@ func TestParseDate(t *testing.T) {
 	}
 	tm, err := time.Parse(time.RubyDate, tw.CreatedAt)
 	if err != nil {
-		t.Fa
+		t.Fatalf("time.Parse %v", err)
+	}
+	_ = tm
+}
+func TestResume(t *testing.T) {
+	c := newClient()
+	u
