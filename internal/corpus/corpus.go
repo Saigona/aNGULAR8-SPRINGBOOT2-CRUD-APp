@@ -8,4 +8,9 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
-	"
+	"runtime"
+
+	"golang.org/x/exp/maps"
+)
+
+//go:embed images/uninteresting images/testpatte
