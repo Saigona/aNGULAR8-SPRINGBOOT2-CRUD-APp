@@ -13,4 +13,9 @@ import (
 	"golang.org/x/exp/maps"
 )
 
-//go:embed images/uninteresting images/testpatte
+//go:embed images/uninteresting images/testpatterns
+var content embed.FS
+
+type Corpus struct {
+	name   string
+	ima
