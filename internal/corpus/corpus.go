@@ -32,4 +32,8 @@ func (c *Corpus) Name() string {
 }
 
 var (
-	_, b, _, _ =
+	_, b, _, _ = runtime.Caller(0)
+	corpusRoot = filepath.Dir(b)
+)
+
+func LoadFS(path string) 
