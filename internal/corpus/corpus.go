@@ -22,4 +22,7 @@ type Corpus struct {
 }
 
 func (c *Corpus) Images() []image.Image {
-	ret
+	return maps.Values(c.images)
+}
+func (c *Corpus) ImagesMap() map[string]image.Image {
+	retur
