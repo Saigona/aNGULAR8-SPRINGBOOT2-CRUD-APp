@@ -18,4 +18,8 @@ var content embed.FS
 
 type Corpus struct {
 	name   string
-	ima
+	images map[string]image.Image
+}
+
+func (c *Corpus) Images() []image.Image {
+	ret
