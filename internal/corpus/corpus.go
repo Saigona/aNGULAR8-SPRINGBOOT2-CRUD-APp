@@ -25,4 +25,11 @@ func (c *Corpus) Images() []image.Image {
 	return maps.Values(c.images)
 }
 func (c *Corpus) ImagesMap() map[string]image.Image {
-	retur
+	return c.images
+}
+func (c *Corpus) Name() string {
+	return c.name
+}
+
+var (
+	_, b, _, _ =
