@@ -43,4 +43,5 @@ func LoadFS(path string) (*Corpus, error) {
 	}
 
 	err := filepath.Walk(
-		
+		fmt.Sprintf("%s/images/%s", corpusRoot, path),
+		func(path string, info fs.FileInfo, err er
