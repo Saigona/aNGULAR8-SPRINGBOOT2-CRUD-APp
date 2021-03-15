@@ -36,4 +36,11 @@ var (
 	corpusRoot = filepath.Dir(b)
 )
 
-func LoadFS(path string) 
+func LoadFS(path string) (*Corpus, error) {
+	c := &Corpus{
+		name:   path,
+		images: make(map[string]image.Image),
+	}
+
+	err := filepath.Walk(
+		
