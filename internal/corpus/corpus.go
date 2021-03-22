@@ -59,4 +59,6 @@ func LoadEmbedded(path string) (*Corpus, error) {
 		name:   path,
 		images: make(map[string]image.Image),
 	}
-	dirPath := fmt.Sprintf(
+	dirPath := fmt.Sprintf("images/%s", path)
+	dir, err := content.ReadDir(dirPath)
+	if err != nil {
