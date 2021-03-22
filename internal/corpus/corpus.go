@@ -49,3 +49,10 @@ func LoadFS(path string) (*Corpus, error) {
 				return err
 			}
 			return c.loadEntry(path, info)
+		})
+
+	return c, err
+}
+
+func LoadEmbedded(path string) (*Corpus, error) {
+	c := &Cor
