@@ -55,4 +55,8 @@ func LoadFS(path string) (*Corpus, error) {
 }
 
 func LoadEmbedded(path string) (*Corpus, error) {
-	c := &Cor
+	c := &Corpus{
+		name:   path,
+		images: make(map[string]image.Image),
+	}
+	dirPath := fmt.Sprintf(
