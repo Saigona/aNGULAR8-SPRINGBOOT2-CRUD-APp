@@ -62,3 +62,7 @@ func LoadEmbedded(path string) (*Corpus, error) {
 	dirPath := fmt.Sprintf("images/%s", path)
 	dir, err := content.ReadDir(dirPath)
 	if err != nil {
+		return nil, err
+	}
+	for _, entry := range dir {
+		if err := c.loadPat
