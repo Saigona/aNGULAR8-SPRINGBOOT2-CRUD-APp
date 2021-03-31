@@ -67,4 +67,9 @@ func LoadEmbedded(path string) (*Corpus, error) {
 	for _, entry := range dir {
 		if err := c.loadPath(content.Open, dirPath+"/"+entry.Name()); err != nil {
 			return nil, err
-	
+		}
+	}
+	return c, nil
+}
+
+func (c *Corpus) loadPath(open func(name string) (fs.File, 
