@@ -72,4 +72,8 @@ func LoadEmbedded(path string) (*Corpus, error) {
 	return c, nil
 }
 
-func (c *Corpus) loadPath(open func(name string) (fs.File, 
+func (c *Corpus) loadPath(open func(name string) (fs.File, error), path string) error {
+	f, err := open(path)
+	if err != nil {
+		return err
+	}
