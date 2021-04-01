@@ -77,3 +77,8 @@ func (c *Corpus) loadPath(open func(name string) (fs.File, error), path string) 
 	if err != nil {
 		return err
 	}
+	defer f.Close()
+	img, err := png.Decode(f)
+	if err != nil {
+		return err
+	}
