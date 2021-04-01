@@ -82,3 +82,10 @@ func (c *Corpus) loadPath(open func(name string) (fs.File, error), path string) 
 	if err != nil {
 		return err
 	}
+	key := filepath.Base(path)
+
+	c.images[key] = img
+	return nil
+}
+
+func (c *Corp
