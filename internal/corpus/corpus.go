@@ -88,4 +88,8 @@ func (c *Corpus) loadPath(open func(name string) (fs.File, error), path string) 
 	return nil
 }
 
-func (c *Corp
+func (c *Corpus) loadEntry(path string, info fs.FileInfo) error {
+	if info.IsDir() {
+		return nil
+	}
+	return
