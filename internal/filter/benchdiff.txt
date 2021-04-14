@@ -1,2 +1,4 @@
 name                  old time/op    new time/op    delta
-MinDi
+MinDistFromCorpus-16    5.30ms ± 0%    5.76ms ± 0%  +8.56%
+
+name                  old alloc/op   
