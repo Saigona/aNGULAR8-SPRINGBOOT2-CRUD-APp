@@ -94,3 +94,5 @@ func (c *Corpus) loadEntry(path string, info fs.FileInfo) error {
 	}
 	return c.loadPath(func(name string) (fs.File, error) {
 		return os.Open(name)
+	}, path)
+}
