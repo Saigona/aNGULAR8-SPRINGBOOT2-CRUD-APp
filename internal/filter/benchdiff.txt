@@ -4,4 +4,5 @@ MinDistFromCorpus-16    5.30ms ± 0%    5.76ms ± 0%  +8.56%
 name                  old alloc/op   new alloc/op   delta
 MinDistFromCorpus-16    3.82MB ± 0%    3.82MB ± 0%  +0.00%
 
-name 
+name                  old allocs/op  new allocs/op  delta
+MinDistFromCorpus-16     67.9k ±
