@@ -4,4 +4,4 @@ pkg: github.com/WIZARDISHUNGRY/hls-await/internal/filter
 cpu: AMD Ryzen 7 2700X Eight-Core Processor         
 BenchmarkMinDistFromCorpus-16    	     218	   5759205 ns/op	 3815916 B/op	   67925 allocs/op
 PASS
-ok  	github.com/WIZARD
+ok  	github.com/WIZARDISHUNGRY/hls-await/internal/filter	2.135s

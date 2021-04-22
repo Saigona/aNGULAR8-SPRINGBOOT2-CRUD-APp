@@ -1,0 +1,44 @@
+
+package filter
+
+import (
+	"context"
+	"image"
+
+	"github.com/WIZARDISHUNGRY/hls-await/internal/corpus"
+	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
+	"github.com/corona10/goimagehash"
+	"github.com/pkg/errors"
+)
+
+const (
+	defaultDim     = 16
+	defaultMinDist = 12
+)
+
+func DefaultMinDistFromCorpus(c *corpus.Corpus) FilterFunc {
+	return MinDistFromCorpus(c, defaultDim, defaultMinDist)
+}
+
+// MinDistFromCorpus returns a filter function that rejects images that fall under a threshold when
+// comparing the ExtPerceptionHash against a corpus.
+func MinDistFromCorpus(c *corpus.Corpus, dim, minDist int) FilterFunc {
+	hashes := make(map[string]*goimagehash.ExtImageHash, len(c.Images()))
+	for file, img := range c.ImagesMap() {
+		hash, err := goimagehash.ExtPerceptionHash(img, dim, dim)
+		if err != nil {
+			panic(errors.Wrap(err, "goimagehash.ExtPerceptionHash"))
+		}
+		hashes[file] = hash
+	}
+	return func(ctx context.Context, img image.Image) (ok bool, err error) {
+		log := logger.Entry(ctx)
+		defer func() {
+			log.Tracef("MinDistFromCorpus(%s): %v %v", c.Name(), ok, err)
+		}()
+		hash, err := goimagehash.ExtPerceptionHash(img, dim, dim)
+		if err != nil {
+			return false, errors.Wrap(err, "goimagehash.ExtPerceptionHash")
+		}
+		for file, corpusHash := range hashes {
+			if ctx.Err() != nil {
