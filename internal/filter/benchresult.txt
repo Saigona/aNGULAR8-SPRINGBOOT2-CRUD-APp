@@ -1,3 +1,5 @@
 goos: linux
 goarch: amd64
-pkg: github.com/WIZARDISHUNGRY/hls-aw
+pkg: github.com/WIZARDISHUNGRY/hls-await/internal/filter
+cpu: AMD Ryzen 7 2700X Eight-Core Processor         
+BenchmarkMinDistFromCorpus
