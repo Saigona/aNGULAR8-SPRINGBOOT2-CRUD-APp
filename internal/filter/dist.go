@@ -42,3 +42,17 @@ func MinDistFromCorpus(c *corpus.Corpus, dim, minDist int) FilterFunc {
 		}
 		for file, corpusHash := range hashes {
 			if ctx.Err() != nil {
+				return true, ctx.Err()
+			}
+			dist, err := hash.Distance(corpusHash)
+			if err != nil {
+				return false, errors.Wrap(err, "hash.Distance")
+			}
+			if dist <= minDist {
+				log.Tracef("MinDistFromCorpus(%s/%s): %v <= %v", c.Name(), file, dist, minDist)
+				return false, nil
+			}
+		}
+		return true, nil
+	}
+}
