@@ -7,4 +7,7 @@ import (
 
 	"github.com/WIZARDISHUNGRY/hls-await/internal/corpus"
 	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
-	"github.
+	"github.com/sirupsen/logrus"
+)
+
+//go:generate sh -c "go test ./... -run '^$' -benchmem -bench .
