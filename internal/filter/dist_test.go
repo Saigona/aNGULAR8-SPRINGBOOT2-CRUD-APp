@@ -10,4 +10,5 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-//go:generate sh -c "go test ./... -run '^$' -benchmem -bench .
+//go:generate sh -c "go test ./... -run '^$' -benchmem -bench . | tee benchresult.txt"
+//go:generate sh -c "git show :./benchresult.txt | go run golang.or
