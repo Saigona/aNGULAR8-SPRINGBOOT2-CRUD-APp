@@ -14,4 +14,6 @@ import (
 //go:generate sh -c "git show :./benchresult.txt | go run golang.org/x/perf/cmd/benchstat -delta-test none -geomean /dev/stdin benchresult.txt | tee benchdiff.txt"
 
 func TestMinDistFromCorpus(t *testing.T) {
-	testPatterns, err := 
+	testPatterns, err := corpus.LoadEmbedded("testpatterns")
+	if err != nil {
+		t.Fatalf("Load testpattern
