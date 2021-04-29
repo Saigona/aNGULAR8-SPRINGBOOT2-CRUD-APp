@@ -19,4 +19,9 @@ func TestMinDistFromCorpus(t *testing.T) {
 		t.Fatalf("Load testpatterns: %v", err)
 	}
 	interesting, err := corpus.LoadFS("interesting")
-	if err != 
+	if err != nil {
+		t.Fatalf("Load interesting: %v", err)
+	}
+
+	f := DefaultMinDistFromCorpus(testPatterns)
+	ctx := 
