@@ -16,4 +16,7 @@ import (
 func TestMinDistFromCorpus(t *testing.T) {
 	testPatterns, err := corpus.LoadEmbedded("testpatterns")
 	if err != nil {
-		t.Fatalf("Load testpattern
+		t.Fatalf("Load testpatterns: %v", err)
+	}
+	interesting, err := corpus.LoadFS("interesting")
+	if err != 
