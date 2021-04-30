@@ -24,4 +24,7 @@ func TestMinDistFromCorpus(t *testing.T) {
 	}
 
 	f := DefaultMinDistFromCorpus(testPatterns)
-	ctx := 
+	ctx := testCtx()
+	for name, img := range interesting.ImagesMap() {
+		ok, err := f(ctx, img)
+		if er
