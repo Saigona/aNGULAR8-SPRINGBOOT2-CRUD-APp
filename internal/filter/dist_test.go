@@ -27,4 +27,8 @@ func TestMinDistFromCorpus(t *testing.T) {
 	ctx := testCtx()
 	for name, img := range interesting.ImagesMap() {
 		ok, err := f(ctx, img)
-		if er
+		if err != nil {
+			t.Fatalf("filter: %v", err)
+		}
+		if !ok {
+			t.Fatalf("filte
