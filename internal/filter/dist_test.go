@@ -31,4 +31,10 @@ func TestMinDistFromCorpus(t *testing.T) {
 			t.Fatalf("filter: %v", err)
 		}
 		if !ok {
-			t.Fatalf("filte
+			t.Fatalf("filter failed for %s", name)
+		}
+	}
+}
+
+func TestMinDistFromCorpus_rejects_self(t *testing.T) {
+	testPatterns, err
