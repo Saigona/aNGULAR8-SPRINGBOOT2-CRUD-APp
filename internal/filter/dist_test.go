@@ -39,4 +39,9 @@ func TestMinDistFromCorpus(t *testing.T) {
 func TestMinDistFromCorpus_rejects_self(t *testing.T) {
 	testPatterns, err := corpus.LoadEmbedded("testpatterns")
 	if err != nil {
-		t.Fatalf("Load testpatterns: 
+		t.Fatalf("Load testpatterns: %v", err)
+	}
+
+	f := DefaultMinDistFromCorpus(testPatterns)
+	ctx := testCtx()
+	for name
