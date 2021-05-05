@@ -44,4 +44,7 @@ func TestMinDistFromCorpus_rejects_self(t *testing.T) {
 
 	f := DefaultMinDistFromCorpus(testPatterns)
 	ctx := testCtx()
-	for name
+	for name, img := range testPatterns.ImagesMap() {
+		ok, err := f(ctx, img)
+		if err != nil {
+	
