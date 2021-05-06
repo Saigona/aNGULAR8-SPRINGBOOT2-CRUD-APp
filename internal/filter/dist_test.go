@@ -50,4 +50,10 @@ func TestMinDistFromCorpus_rejects_self(t *testing.T) {
 			t.Fatalf("filter: %v", err)
 		}
 		if ok {
-			t.Fatalf("filter succeeded for 
+			t.Fatalf("filter succeeded for %s", name)
+		}
+	}
+}
+
+func BenchmarkMinDistFromCorpus(b *testing.B) {
+	testPatterns
