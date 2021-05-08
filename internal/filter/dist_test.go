@@ -58,4 +58,8 @@ func TestMinDistFromCorpus_rejects_self(t *testing.T) {
 func BenchmarkMinDistFromCorpus(b *testing.B) {
 	testPatterns, err := corpus.LoadEmbedded("testpatterns")
 	if err != nil {
-		b.Fatalf("Load t
+		b.Fatalf("Load testpatterns: %v", err)
+	}
+	f := DefaultMinDistFromCorpus(testPatterns)
+	const (
+		xDim = 7
