@@ -67,4 +67,7 @@ func BenchmarkMinDistFromCorpus(b *testing.B) {
 	)
 	rect := image.Rectangle{Min: image.Point{}, Max: image.Point{X: xDim, Y: yDim}}
 
-	im
+	img := image.NewRGBA(rect)
+	ctx := benchCtx()
+	b.ResetTimer()
+	for n := 0
