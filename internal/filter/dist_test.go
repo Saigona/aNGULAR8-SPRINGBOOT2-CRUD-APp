@@ -62,4 +62,9 @@ func BenchmarkMinDistFromCorpus(b *testing.B) {
 	}
 	f := DefaultMinDistFromCorpus(testPatterns)
 	const (
-		xDim = 7
+		xDim = 720
+		yDim = 576
+	)
+	rect := image.Rectangle{Min: image.Point{}, Max: image.Point{X: xDim, Y: yDim}}
+
+	im
