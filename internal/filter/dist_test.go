@@ -70,4 +70,7 @@ func BenchmarkMinDistFromCorpus(b *testing.B) {
 	img := image.NewRGBA(rect)
 	ctx := benchCtx()
 	b.ResetTimer()
-	for n := 0
+	for n := 0; n < b.N; n++ {
+		_, err := f(ctx, img)
+		if err != nil {
+			b.Fatalf("filter: %
