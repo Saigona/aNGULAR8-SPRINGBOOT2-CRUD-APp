@@ -73,4 +73,12 @@ func BenchmarkMinDistFromCorpus(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		_, err := f(ctx, img)
 		if err != nil {
-			b.Fatalf("filter: %
+			b.Fatalf("filter: %v", err)
+		}
+	}
+
+}
+
+func benchCtx() context.Context {
+	logr := logrus.New()
+	logr.
