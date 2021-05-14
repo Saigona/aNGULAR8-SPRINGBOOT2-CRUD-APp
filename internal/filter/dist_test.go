@@ -82,4 +82,9 @@ func BenchmarkMinDistFromCorpus(b *testing.B) {
 func benchCtx() context.Context {
 	logr := logrus.New()
 	logr.Level = logrus.ErrorLevel
-	return logger.WithLogEntry(context.Background(), logrus.NewEntry(logr
+	return logger.WithLogEntry(context.Background(), logrus.NewEntry(logr))
+}
+
+func testCtx() context.Context {
+	logr := logrus.New()
+	return logger.WithLogEntr
