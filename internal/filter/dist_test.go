@@ -87,4 +87,5 @@ func benchCtx() context.Context {
 
 func testCtx() context.Context {
 	logr := logrus.New()
-	return logger.WithLogEntr
+	return logger.WithLogEntry(context.Background(), logrus.NewEntry(logr))
+}
