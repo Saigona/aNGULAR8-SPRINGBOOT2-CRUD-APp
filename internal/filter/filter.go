@@ -8,4 +8,5 @@ import (
 // FilterFunc is a function that evaluates if a function passes a filter. It must be safe for concurrent use.
 type FilterFunc func(context.Context, image.Image) (bool, error)
 
-func 
+func Multi(fxns ...FilterFunc) FilterFunc {
+	return func(ctx context.Context, img image.Imag
