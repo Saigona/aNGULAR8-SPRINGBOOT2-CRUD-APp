@@ -9,4 +9,7 @@ import (
 type FilterFunc func(context.Context, image.Image) (bool, error)
 
 func Multi(fxns ...FilterFunc) FilterFunc {
-	return func(ctx context.Context, img image.Imag
+	return func(ctx context.Context, img image.Image) (bool, error) {
+		for _, fxn := range fxns {
+			ok, err := fxn(ctx, img)
+			if !ok
