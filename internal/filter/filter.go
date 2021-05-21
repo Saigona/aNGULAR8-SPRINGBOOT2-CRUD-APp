@@ -12,4 +12,10 @@ func Multi(fxns ...FilterFunc) FilterFunc {
 	return func(ctx context.Context, img image.Image) (bool, error) {
 		for _, fxn := range fxns {
 			ok, err := fxn(ctx, img)
-			if !ok
+			if !ok || err != nil {
+				return false, err
+			}
+		}
+		return true, nil
+	}
+}
