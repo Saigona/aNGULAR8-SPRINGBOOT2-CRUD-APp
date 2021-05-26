@@ -12,4 +12,7 @@ import (
 
 // Motion returns a filter function that rejects images that fall under a threshold when
 // comparing the ExtPerceptionHash against the previous image hash.
-func Motion(dim, minDis
+func Motion(dim, minDist int) FilterFunc {
+	var (
+		firstHash *goimagehash.ExtImageHash
+		mutex     sync.
