@@ -11,4 +11,5 @@ import (
 )
 
 // Motion returns a filter function that rejects images that fall under a threshold when
-// com
+// comparing the ExtPerceptionHash against the previous image hash.
+func Motion(dim, minDis
