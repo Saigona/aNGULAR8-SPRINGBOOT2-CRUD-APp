@@ -15,4 +15,8 @@ import (
 func Motion(dim, minDist int) FilterFunc {
 	var (
 		firstHash *goimagehash.ExtImageHash
-		mutex     sync.
+		mutex     sync.Mutex
+	)
+
+	return func(ctx context.Context, img image.Image) (bool, error) {
+		log := logg
