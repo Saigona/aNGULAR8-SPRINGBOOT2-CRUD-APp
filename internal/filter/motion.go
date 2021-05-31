@@ -19,4 +19,7 @@ func Motion(dim, minDist int) FilterFunc {
 	)
 
 	return func(ctx context.Context, img image.Image) (bool, error) {
-		log := logg
+		log := logger.Entry(ctx)
+
+		hash, err := goimagehash.ExtPerceptionHash(img, dim, dim)
+		if
