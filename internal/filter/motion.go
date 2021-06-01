@@ -22,4 +22,9 @@ func Motion(dim, minDist int) FilterFunc {
 		log := logger.Entry(ctx)
 
 		hash, err := goimagehash.ExtPerceptionHash(img, dim, dim)
-		if
+		if err != nil {
+			return false, errors.Wrap(err, "ExtPerceptionHash error")
+		}
+
+		mutex.Lock()
+		d
