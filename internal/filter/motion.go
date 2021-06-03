@@ -27,4 +27,7 @@ func Motion(dim, minDist int) FilterFunc {
 		}
 
 		mutex.Lock()
-		d
+		defer mutex.Unlock()
+		if firstHash == nil {
+			firstHash = hash
+			return true, nil
