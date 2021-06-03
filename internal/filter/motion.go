@@ -31,3 +31,9 @@ func Motion(dim, minDist int) FilterFunc {
 		if firstHash == nil {
 			firstHash = hash
 			return true, nil
+		}
+		distance, err := firstHash.Distance(hash)
+		firstHash = hash
+
+		if err != nil {
+	
