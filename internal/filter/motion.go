@@ -39,4 +39,4 @@ func Motion(dim, minDist int) FilterFunc {
 			return false, errors.Wrap(err, "ExtPerceptionHash Distance error")
 		}
 		ok := distance >= minDist
-		l
+		log.Tracef("motion distance is %d, threshold is %d\n", distance, minDist)
