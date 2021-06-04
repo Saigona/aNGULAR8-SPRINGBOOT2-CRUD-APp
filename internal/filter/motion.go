@@ -36,4 +36,7 @@ func Motion(dim, minDist int) FilterFunc {
 		firstHash = hash
 
 		if err != nil {
-	
+			return false, errors.Wrap(err, "ExtPerceptionHash Distance error")
+		}
+		ok := distance >= minDist
+		l
