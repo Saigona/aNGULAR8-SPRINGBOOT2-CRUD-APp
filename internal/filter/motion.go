@@ -40,3 +40,6 @@ func Motion(dim, minDist int) FilterFunc {
 		}
 		ok := distance >= minDist
 		log.Tracef("motion distance is %d, threshold is %d\n", distance, minDist)
+		return ok, nil
+	}
+}
