@@ -3,4 +3,5 @@ BulkScores/png-16        2.52ms ± 0%    2.25ms ± 0%  -10.48%
 BulkScores/gzip-16        879µs ± 0%     215µs ± 0%  -75.57%
 BulkScores/jpeg-16        722µs ± 0%     723µs ± 0%   +0.19%
 BulkScores/gif-16        35.0ms ± 0%    33.4ms ± 0%   -4.63%
-BulkScores
+BulkScores/png256-16     2.00ms ± 0%    2.01ms ± 0%   +0.19%
+BulkScores/gzip256-16    2.04ms ± 0%    1.98m
