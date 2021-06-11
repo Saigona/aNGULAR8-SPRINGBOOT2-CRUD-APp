@@ -6,4 +6,5 @@ BulkScores/gif-16        35.0ms ± 0%    33.4ms ± 0%   -4.63%
 BulkScores/png256-16     2.00ms ± 0%    2.01ms ± 0%   +0.19%
 BulkScores/gzip256-16    2.04ms ± 0%    1.98ms ± 0%   -2.70%
 BulkScores/jpeg256-16    2.83ms ± 0%    3.05ms ± 0%   +7.67%
-B
+BulkScores/gif256-16     2.08ms ± 0%    2.03ms ± 0%   -2.70%
+ScoreImag
