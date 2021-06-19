@@ -12,4 +12,6 @@ ScoreImage/gzip-16       1.62ms ± 0%    0.11ms ± 0%  -93.21%
 ScoreImage/jpeg-16       6.85ms ± 0%    6.87ms ± 0%   +0.34%
 ScoreImage/gif-16         256ms ± 0%     257ms ± 0%   +0.30%
 ScoreImage/png256-16     19.3ms ± 0%    20.0ms ± 0%   +3.15%
-ScoreImage/gzip256-16    20.1ms ± 0%    20.2ms ± 0%   +0.
+ScoreImage/gzip256-16    20.1ms ± 0%    20.2ms ± 0%   +0.56%
+ScoreImage/jpeg256-16    27.4ms ± 0%    27.4ms ± 0%   +0.13%
+ScoreImage/gif256-16     20.6ms 
