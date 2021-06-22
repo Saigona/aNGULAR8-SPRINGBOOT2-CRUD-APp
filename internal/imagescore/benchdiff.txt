@@ -18,4 +18,5 @@ ScoreImage/gif256-16     20.6ms ± 0%    20.4ms ± 0%   -1.22%
 [Geo mean]               6.71ms         5.15ms       -23.22%
 
 name                   old alloc/op   new alloc/op   delta
-BulkSco
+BulkScores/png-16        5.12MB ± 0%    5.13MB ± 0%   +0.23%
+BulkScores/gzip-16       6.51MB 
