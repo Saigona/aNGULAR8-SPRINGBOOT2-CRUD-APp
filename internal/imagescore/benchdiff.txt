@@ -19,4 +19,5 @@ ScoreImage/gif256-16     20.6ms ± 0%    20.4ms ± 0%   -1.22%
 
 name                   old alloc/op   new alloc/op   delta
 BulkScores/png-16        5.12MB ± 0%    5.13MB ± 0%   +0.23%
-BulkScores/gzip-16       6.51MB 
+BulkScores/gzip-16       6.51MB ± 0%    2.48MB ± 0%  -61.89%
+BulkScores/jpeg-16       1.70MB ± 0%    1.70MB ± 0%   -0.2
