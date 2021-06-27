@@ -28,3 +28,5 @@ BulkScores/jpeg256-16    5.45MB ± 0%    5.46MB ± 0%   +0.09%
 BulkScores/gif256-16     5.52MB ± 0%    5.51MB ± 0%   -0.09%
 ScoreImage/png-16        3.40MB ± 0%    3.40MB ± 0%    0.00%
 ScoreImage/gzip-16       4.56MB ± 0%    0.81MB ± 0%  -82.30%
+ScoreImage/jpeg-16       23.9kB ± 0%    24.1kB ± 0%   +0.96%
+ScoreImage/gif-16    
