@@ -32,4 +32,5 @@ ScoreImage/jpeg-16       23.9kB ± 0%    24.1kB ± 0%   +0.96%
 ScoreImage/gif-16        1.36MB ± 0%    1.36MB ± 0%    0.00%
 ScoreImage/png256-16     3.78MB ± 0%    3.78MB ± 0%   +0.04%
 ScoreImage/gzip256-16    6.34MB ± 0%    4.56MB ± 0%  -28.11%
-ScoreImage/jpeg256
+ScoreImage/jpeg256-16    3.77MB ± 0%    3.76MB ± 0%   -0.20%
+ScoreImage/gif256-16     3.83MB ± 0%    
