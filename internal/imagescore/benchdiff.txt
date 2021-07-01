@@ -37,4 +37,5 @@ ScoreImage/gif256-16     3.83MB ± 0%    3.83MB ± 0%    0.00%
 [Geo mean]               3.00MB         2.47MB       -17.75%
 
 name                   old allocs/op  new allocs/op  delta
-BulkScores/png-16          
+BulkScores/png-16          829k ± 0%      829k ± 0%    0.00%
+BulkScores/gzip-16         63.0 ± 0%      18.0 ± 0%  -71.43%
