@@ -47,4 +47,6 @@ BulkScores/jpeg256-16      415k ± 0%      415k ± 0%    0.00%
 BulkScores/gif256-16       415k ± 0%      415k ± 0%   -0.00%
 ScoreImage/png-16          829k ± 0%      829k ± 0%    0.00%
 ScoreImage/gzip-16         58.0 ± 0%      14.0 ± 0%  -75.86%
-ScoreImage/jpeg-16         5.00 ± 0%      5.00 ± 0
+ScoreImage/jpeg-16         5.00 ± 0%      5.00 ± 0%    0.00%
+ScoreImage/gif-16          24.0 ± 0%      24.0 ± 0%    0.00%
+ScoreImage/p
