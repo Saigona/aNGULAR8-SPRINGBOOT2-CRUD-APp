@@ -1,3 +1,5 @@
 goos: linux
 goarch: amd64
-pkg: github.com/WIZARDISHUNGRY/hls-await
+pkg: github.com/WIZARDISHUNGRY/hls-await/internal/imagescore
+cpu: AMD Ryzen 7 2700X Eight-Core Processor         
+BenchmarkBulkScore
