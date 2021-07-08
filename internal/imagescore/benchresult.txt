@@ -1,0 +1,3 @@
+goos: linux
+goarch: amd64
+pkg: github.com/WIZARDISHUNGRY/hls-await

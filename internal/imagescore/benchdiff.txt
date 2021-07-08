@@ -53,4 +53,4 @@ ScoreImage/png256-16       415k ± 0%      415k ± 0%    0.00%
 ScoreImage/gzip256-16      415k ± 0%      415k ± 0%   -0.01%
 ScoreImage/jpeg256-16      415k ± 0%      415k ± 0%    0.00%
 ScoreImage/gif256-16       415k ± 0%      415k ± 0%    0.00%
-[Geo mean]                11.5k           9
+[Geo mean]                11.5k           9.8k       -15.26%
