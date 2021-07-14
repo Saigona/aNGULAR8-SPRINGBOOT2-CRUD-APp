@@ -5,4 +5,5 @@ cpu: AMD Ryzen 7 2700X Eight-Core Processor
 BenchmarkBulkScores/png-16         	     500	   2253321 ns/op	 5127812 B/op	  829451 allocs/op
 BenchmarkBulkScores/gzip-16        	    4657	    214747 ns/op	 2481390 B/op	      18 allocs/op
 BenchmarkBulkScores/jpeg-16        	    1658	    723147 ns/op	 1696681 B/op	       9 allocs/op
-BenchmarkBulkScores/gif-16         	      30	  33373149 ns/op	 3853986 B/op	  
+BenchmarkBulkScores/gif-16         	      30	  33373149 ns/op	 3853986 B/op	      41 allocs/op
+BenchmarkBulkScores/png256-16      	     604	   2006288 ns/op	 54
