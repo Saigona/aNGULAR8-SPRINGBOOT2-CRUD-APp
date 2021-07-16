@@ -9,4 +9,5 @@ BenchmarkBulkScores/gif-16         	      30	  33373149 ns/op	 3853986 B/op	    
 BenchmarkBulkScores/png256-16      	     604	   2006288 ns/op	 5462663 B/op	  414951 allocs/op
 BenchmarkBulkScores/gzip256-16     	     548	   1981916 ns/op	 6241574 B/op	  414741 allocs/op
 BenchmarkBulkScores/jpeg256-16     	     331	   3049440 ns/op	 5457710 B/op	  414733 allocs/op
-BenchmarkBulkScores/gif256-16      	    
+BenchmarkBulkScores/gif256-16      	     562	   2027606 ns/op	 5513125 B/op	  414735 allocs/op
+BenchmarkScoreImage/p
