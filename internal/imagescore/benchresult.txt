@@ -11,4 +11,4 @@ BenchmarkBulkScores/gzip256-16     	     548	   1981916 ns/op	 6241574 B/op	  41
 BenchmarkBulkScores/jpeg256-16     	     331	   3049440 ns/op	 5457710 B/op	  414733 allocs/op
 BenchmarkBulkScores/gif256-16      	     562	   2027606 ns/op	 5513125 B/op	  414735 allocs/op
 BenchmarkScoreImage/png-16         	      56	  19601252 ns/op	 3399750 B/op	  829446 allocs/op
-BenchmarkScoreImage/
+BenchmarkScoreImage/gzip-16        	   10000	    109849 ns/op	  807125 B/op	      14 allocs/
