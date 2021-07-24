@@ -19,4 +19,4 @@ BenchmarkScoreImage/gzip256-16     	      52	  20220332 ns/op	 4560636 B/op	  41
 BenchmarkScoreImage/jpeg256-16     	      38	  27429895 ns/op	 3764956 B/op	  414728 allocs/op
 BenchmarkScoreImage/gif256-16      	      58	  20398301 ns/op	 3831946 B/op	  414730 allocs/op
 PASS
-ok  	githu
+ok  	github.com/WIZARDISHUNGRY/hls-await/internal/imagescore	26.263s
