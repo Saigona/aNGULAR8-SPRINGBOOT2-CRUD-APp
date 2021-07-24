@@ -17,4 +17,6 @@ BenchmarkScoreImage/gif-16         	       4	 256655066 ns/op	 1358946 B/op	    
 BenchmarkScoreImage/png256-16      	      60	  19957254 ns/op	 3780092 B/op	  414946 allocs/op
 BenchmarkScoreImage/gzip256-16     	      52	  20220332 ns/op	 4560636 B/op	  414737 allocs/op
 BenchmarkScoreImage/jpeg256-16     	      38	  27429895 ns/op	 3764956 B/op	  414728 allocs/op
-BenchmarkScoreImage/gif256-16 
+BenchmarkScoreImage/gif256-16      	      58	  20398301 ns/op	 3831946 B/op	  414730 allocs/op
+PASS
+ok  	githu
