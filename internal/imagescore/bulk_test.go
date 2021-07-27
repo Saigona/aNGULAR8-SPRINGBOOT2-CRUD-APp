@@ -1,4 +1,10 @@
 package imagescore
 
 import (
-	"conte
+	"context"
+	"image"
+	"sync"
+	"testing"
+)
+
+//go:generate sh -c "go test ./... -r
