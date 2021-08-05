@@ -15,4 +15,6 @@ func BenchmarkBulkScores(b *testing.B) {
 		xDim = 720
 		yDim = 576
 	)
-	rect := image.Rectangle{Min: image.
+	rect := image.Rectangle{Min: image.Point{}, Max: image.Point{X: xDim, Y: yDim}}
+
+	for _, tC := range standardTestCases {
