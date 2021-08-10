@@ -20,4 +20,7 @@ func BenchmarkBulkScores(b *testing.B) {
 	for _, tC := range standardTestCases {
 		b.Run(tC.desc, func(b *testing.B) {
 			ctx := context.Background()
-			bs := NewBulkScor
+			bs := NewBulkScore(ctx, tC.scoreF)
+			b.ResetTimer()
+			b.RunParallel(func(p *testing.PB) {
+				fo
