@@ -25,4 +25,7 @@ func BenchmarkBulkScores(b *testing.B) {
 			b.RunParallel(func(p *testing.PB) {
 				for p.Next() {
 					img := image.NewRGBA(rect)
-					_, err := bs.ScoreImage(ctx, 
+					_, err := bs.ScoreImage(ctx, img)
+					if err != nil {
+						b.Fatalf("ScoreImage: %v", err)
+		
