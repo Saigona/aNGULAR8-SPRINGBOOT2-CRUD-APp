@@ -28,4 +28,14 @@ func BenchmarkBulkScores(b *testing.B) {
 					_, err := bs.ScoreImage(ctx, img)
 					if err != nil {
 						b.Fatalf("ScoreImage: %v", err)
-		
+					}
+				}
+			})
+
+		})
+	}
+
+}
+
+func FuzzBulk(f *testing.F) {
+	f.Fuzz(func(t *testing
