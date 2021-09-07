@@ -38,4 +38,6 @@ func BenchmarkBulkScores(b *testing.B) {
 }
 
 func FuzzBulk(f *testing.F) {
-	f.Fuzz(func(t *testing
+	f.Fuzz(func(t *testing.T, count uint16, xDim, yDim int, numWorkers uint8) {
+
+		if xDim == 0 || yDim
