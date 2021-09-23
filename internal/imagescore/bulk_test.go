@@ -43,4 +43,7 @@ func FuzzBulk(f *testing.F) {
 		if xDim == 0 || yDim == 0 || count == 0 || numWorkers == 0 {
 			t.Skip()
 		}
-		rect := image.Rectangle{Min: image.Poin
+		rect := image.Rectangle{Min: image.Point{}, Max: image.Point{X: xDim, Y: yDim}}
+
+		ctx := context.Background()
+		bs := New
