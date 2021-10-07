@@ -50,4 +50,8 @@ func FuzzBulk(f *testing.F) {
 			func() ImageScorer { return NewJpegScorer() },
 		)
 
-		var wg sync.WaitGro
+		var wg sync.WaitGroup
+		wg.Add(int(numWorkers))
+		for i := 0; i < int(numWorkers); i++ {
+			go func() {
+				defer
