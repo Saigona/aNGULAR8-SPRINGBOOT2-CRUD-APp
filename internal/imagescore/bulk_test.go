@@ -46,4 +46,8 @@ func FuzzBulk(f *testing.F) {
 		rect := image.Rectangle{Min: image.Point{}, Max: image.Point{X: xDim, Y: yDim}}
 
 		ctx := context.Background()
-		bs := New
+		bs := NewBulkScore(ctx,
+			func() ImageScorer { return NewJpegScorer() },
+		)
+
+		var wg sync.WaitGro
