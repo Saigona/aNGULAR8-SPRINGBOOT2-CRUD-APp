@@ -56,4 +56,6 @@ func FuzzBulk(f *testing.F) {
 			go func() {
 				defer wg.Done()
 				for i := count; i < count/uint16(numWorkers); i++ {
-					img := image.NewR
+					img := image.NewRGBA(rect)
+					_, err := bs.ScoreImage(ctx, img)
+					if e
