@@ -3,4 +3,11 @@ package imagescore
 import (
 	"context"
 	"image"
-	"image/
+	"image/gif"
+)
+
+type GifScorer struct {
+	uncompressedImageSizeCache
+}
+
+var _ ImageScorer = &GifScor
