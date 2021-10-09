@@ -10,4 +10,8 @@ type GifScorer struct {
 	uncompressedImageSizeCache
 }
 
-var _ ImageScorer = &GifScor
+var _ ImageScorer = &GifScorer{}
+
+func NewGifScorer() *GifScorer { return &GifScorer{} }
+
+func (ps *GifScorer) ScoreImage(ctx conte
