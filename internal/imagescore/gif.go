@@ -24,4 +24,8 @@ func (ps *GifScorer) ScoreImage(ctx context.Context, img image.Image) (float64, 
 	}
 
 	origSize, err := ps.size(img)
-	if err != ni
+	if err != nil {
+		return 0, err
+	}
+	return float64(buf.count) / origSize, nil
+}
