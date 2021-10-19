@@ -1,4 +1,10 @@
 package imagescore
 
 import (
-	"context
+	"context"
+	"image"
+	"image/jpeg"
+)
+
+type JpegScorer struct {
+	uncompressedImageSizeC
