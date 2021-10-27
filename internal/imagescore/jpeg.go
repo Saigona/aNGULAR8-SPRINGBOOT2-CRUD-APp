@@ -12,4 +12,6 @@ type JpegScorer struct {
 
 var _ ImageScorer = &JpegScorer{}
 
-func NewJpegScorer() *JpegScorer { retur
+func NewJpegScorer() *JpegScorer { return &JpegScorer{} }
+
+func (js *JpegScorer) ScoreImage(ctx context.Context, img image.Imag
