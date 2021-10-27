@@ -7,4 +7,9 @@ import (
 )
 
 type JpegScorer struct {
-	uncompressedImageSizeC
+	uncompressedImageSizeCache
+}
+
+var _ ImageScorer = &JpegScorer{}
+
+func NewJpegScorer() *JpegScorer { retur
