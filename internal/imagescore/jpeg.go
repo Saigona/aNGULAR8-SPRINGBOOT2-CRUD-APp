@@ -27,4 +27,5 @@ func (js *JpegScorer) ScoreImage(ctx context.Context, img image.Image) (float64,
 	if err != nil {
 		return 0, err
 	}
-	return float64(b
+	return float64(buf.count) / origSize, nil
+}
