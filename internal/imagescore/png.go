@@ -2,4 +2,11 @@ package imagescore
 
 import (
 	"context"
-	"im
+	"image"
+	"image/png"
+	"sync"
+)
+
+type PngScorer struct {
+	enc png.Encoder
+	un
