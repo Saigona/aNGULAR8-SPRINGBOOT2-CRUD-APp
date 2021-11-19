@@ -9,4 +9,10 @@ import (
 
 type PngScorer struct {
 	enc png.Encoder
-	un
+	uncompressedImageSizeCache
+}
+
+var _ ImageScorer = &PngScorer{}
+
+func NewPngScorer() *PngScorer {
+	re
