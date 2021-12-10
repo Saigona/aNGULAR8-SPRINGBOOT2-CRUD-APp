@@ -15,4 +15,7 @@ type PngScorer struct {
 var _ ImageScorer = &PngScorer{}
 
 func NewPngScorer() *PngScorer {
-	re
+	return &PngScorer{
+		enc: png.Encoder{
+			CompressionLevel: png.BestSpeed,
+			BufferPo
