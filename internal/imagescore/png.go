@@ -18,4 +18,9 @@ func NewPngScorer() *PngScorer {
 	return &PngScorer{
 		enc: png.Encoder{
 			CompressionLevel: png.BestSpeed,
-			BufferPo
+			BufferPool:       &singleThreadBufferPool{},
+		},
+	}
+}
+
+func (ps *PngScorer) ScoreImage(ctx context.Cont
