@@ -23,4 +23,7 @@ func NewPngScorer() *PngScorer {
 	}
 }
 
-func (ps *PngScorer) ScoreImage(ctx context.Cont
+func (ps *PngScorer) ScoreImage(ctx context.Context, img image.Image) (float64, error) {
+	buf := &discardCounter{}
+
+	err := p
