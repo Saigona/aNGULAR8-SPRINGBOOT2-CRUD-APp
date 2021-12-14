@@ -35,4 +35,9 @@ func (ps *PngScorer) ScoreImage(ctx context.Context, img image.Image) (float64, 
 	if err != nil {
 		return 0, err
 	}
-	return float64(buf.count) / origSize, 
+	return float64(buf.count) / origSize, nil
+}
+
+type singleThreadBufferPool png.EncoderBuffer
+
+var _ png.EncoderBufferPoo
