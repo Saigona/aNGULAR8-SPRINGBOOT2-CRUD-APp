@@ -26,4 +26,9 @@ func NewPngScorer() *PngScorer {
 func (ps *PngScorer) ScoreImage(ctx context.Context, img image.Image) (float64, error) {
 	buf := &discardCounter{}
 
-	err := p
+	err := ps.enc.Encode(buf, img)
+	if err != nil {
+		return 0, err
+	}
+
+	origSize, err := ps.si
