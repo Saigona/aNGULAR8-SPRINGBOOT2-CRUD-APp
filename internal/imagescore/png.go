@@ -31,4 +31,8 @@ func (ps *PngScorer) ScoreImage(ctx context.Context, img image.Image) (float64, 
 		return 0, err
 	}
 
-	origSize, err := ps.si
+	origSize, err := ps.size(img)
+	if err != nil {
+		return 0, err
+	}
+	return float64(buf.count) / origSize, 
