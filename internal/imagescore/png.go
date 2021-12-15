@@ -40,4 +40,6 @@ func (ps *PngScorer) ScoreImage(ctx context.Context, img image.Image) (float64, 
 
 type singleThreadBufferPool png.EncoderBuffer
 
-var _ png.EncoderBufferPoo
+var _ png.EncoderBufferPool = (*singleThreadBufferPool)(nil)
+
+func (bp *singleThreadBufferPool) Get() *png
