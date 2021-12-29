@@ -42,4 +42,7 @@ type singleThreadBufferPool png.EncoderBuffer
 
 var _ png.EncoderBufferPool = (*singleThreadBufferPool)(nil)
 
-func (bp *singleThreadBufferPool) Get() *png
+func (bp *singleThreadBufferPool) Get() *png.EncoderBuffer {
+	return (*png.EncoderBuffer)(bp)
+}
+func (bp *singleThreadBufferPool) P
