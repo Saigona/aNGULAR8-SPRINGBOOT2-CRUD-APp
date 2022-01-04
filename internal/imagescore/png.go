@@ -45,4 +45,8 @@ var _ png.EncoderBufferPool = (*singleThreadBufferPool)(nil)
 func (bp *singleThreadBufferPool) Get() *png.EncoderBuffer {
 	return (*png.EncoderBuffer)(bp)
 }
-func (bp *singleThreadBufferPool) P
+func (bp *singleThreadBufferPool) Put(eb *png.EncoderBuffer) {}
+
+type bufferPool sync.Pool
+
+var _ png.EncoderBufferPool = (*b
