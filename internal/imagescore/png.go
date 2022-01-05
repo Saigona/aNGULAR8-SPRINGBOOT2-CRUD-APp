@@ -49,4 +49,7 @@ func (bp *singleThreadBufferPool) Put(eb *png.EncoderBuffer) {}
 
 type bufferPool sync.Pool
 
-var _ png.EncoderBufferPool = (*b
+var _ png.EncoderBufferPool = (*bufferPool)(nil)
+
+var sharedBufferPool *bufferPool = (*bufferPool)(&sync.Pool{
+	N
