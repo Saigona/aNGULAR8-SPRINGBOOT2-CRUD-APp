@@ -52,4 +52,9 @@ type bufferPool sync.Pool
 var _ png.EncoderBufferPool = (*bufferPool)(nil)
 
 var sharedBufferPool *bufferPool = (*bufferPool)(&sync.Pool{
-	N
+	New: func() any {
+		return &png.EncoderBuffer{}
+	},
+})
+
+func (bp *bufferPool) Get() *p
