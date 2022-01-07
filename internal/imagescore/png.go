@@ -57,4 +57,7 @@ var sharedBufferPool *bufferPool = (*bufferPool)(&sync.Pool{
 	},
 })
 
-func (bp *bufferPool) Get() *p
+func (bp *bufferPool) Get() *png.EncoderBuffer {
+	return (*sync.Pool)(bp).Get().(*png.EncoderBuffer)
+}
+func (bp *bufferP
