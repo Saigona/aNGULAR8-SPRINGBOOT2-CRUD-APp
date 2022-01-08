@@ -60,4 +60,6 @@ var sharedBufferPool *bufferPool = (*bufferPool)(&sync.Pool{
 func (bp *bufferPool) Get() *png.EncoderBuffer {
 	return (*sync.Pool)(bp).Get().(*png.EncoderBuffer)
 }
-func (bp *bufferP
+func (bp *bufferPool) Put(eb *png.EncoderBuffer) {
+	(*sync.Pool)(bp).Put(eb)
+}
