@@ -10,4 +10,8 @@ import (
 	"sync/atomic"
 
 	"github.com/WIZARDISHUNGRY/hls-await/internal/filter"
-	"github.com/WIZARDISHUNGRY/hls-awa
+	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
+	"github.com/pkg/errors"
+)
+
+func Filter(bs ImageScorer, minScore floa
