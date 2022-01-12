@@ -14,4 +14,5 @@ import (
 	"github.com/pkg/errors"
 )
 
-func Filter(bs ImageScorer, minScore floa
+func Filter(bs ImageScorer, minScore float64) filter.FilterFunc {
+	return func(ctx context.Context, img image.Image)
