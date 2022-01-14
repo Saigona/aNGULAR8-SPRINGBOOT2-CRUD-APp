@@ -15,4 +15,7 @@ import (
 )
 
 func Filter(bs ImageScorer, minScore float64) filter.FilterFunc {
-	return func(ctx context.Context, img image.Image)
+	return func(ctx context.Context, img image.Image) (bool, error) {
+		log := logger.Entry(ctx)
+		score, err := bs.ScoreImage(ctx, img)
+		if
