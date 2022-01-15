@@ -20,4 +20,6 @@ func Filter(bs ImageScorer, minScore float64) filter.FilterFunc {
 		score, err := bs.ScoreImage(ctx, img)
 		if err != nil {
 			return false, errors.Wrap(err, "bulkScorer.ScoreImage")
-		
+		}
+		if score < minScore {
+			log.WithField("score", score).Trace("bulk score eliminated
