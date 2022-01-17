@@ -25,4 +25,10 @@ func Filter(bs ImageScorer, minScore float64) filter.FilterFunc {
 			log.WithField("score", score).Trace("bulk score eliminated image")
 			return false, nil
 		}
-		log.WithField("score", score).Trace("bulk sco
+		log.WithField("score", score).Trace("bulk score passed image")
+		return true, nil
+	}
+}
+
+type ImageScorer interface {
+	ScoreImage(ctx context
