@@ -31,4 +31,8 @@ func Filter(bs ImageScorer, minScore float64) filter.FilterFunc {
 }
 
 type ImageScorer interface {
-	ScoreImage(ctx context
+	ScoreImage(ctx context.Context, img image.Image) (float64, error)
+}
+
+type discardCounter struct {
+	count 
