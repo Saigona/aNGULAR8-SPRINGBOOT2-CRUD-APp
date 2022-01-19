@@ -35,4 +35,9 @@ type ImageScorer interface {
 }
 
 type discardCounter struct {
-	count 
+	count int
+}
+
+var _ io.Writer = &discardCounter{}
+
+func (dc *discardCounter) Write(p []byte) (n i
