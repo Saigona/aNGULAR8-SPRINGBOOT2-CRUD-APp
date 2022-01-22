@@ -40,4 +40,9 @@ type discardCounter struct {
 
 var _ io.Writer = &discardCounter{}
 
-func (dc *discardCounter) Write(p []byte) (n i
+func (dc *discardCounter) Write(p []byte) (n int, err error) {
+	dc.count += len(p)
+	return len(p), nil
+}
+
+type uncompressedIm
