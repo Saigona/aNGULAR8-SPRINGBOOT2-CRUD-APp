@@ -48,4 +48,9 @@ func (dc *discardCounter) Write(p []byte) (n int, err error) {
 type uncompressedImageSizeCache struct {
 	bounds atomic.Value //uncompressedImageSizeCacheEntry
 }
-type uncompressedIma
+type uncompressedImageSizeCacheEntry struct {
+	bounds image.Rectangle
+	size   float64
+}
+
+func (uis
