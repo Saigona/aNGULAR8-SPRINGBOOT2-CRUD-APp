@@ -53,4 +53,5 @@ type uncompressedImageSizeCacheEntry struct {
 	size   float64
 }
 
-func (uis
+func (uisc *uncompressedImageSizeCache) size(img image.Image) (float64, error) {
+	v
