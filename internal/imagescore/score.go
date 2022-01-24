@@ -54,4 +54,6 @@ type uncompressedImageSizeCacheEntry struct {
 }
 
 func (uisc *uncompressedImageSizeCache) size(img image.Image) (float64, error) {
-	v
+	v := uisc.bounds.Load()
+	if v != nil {
+		entry, ok := v.(uncompressedImageSizeCac
