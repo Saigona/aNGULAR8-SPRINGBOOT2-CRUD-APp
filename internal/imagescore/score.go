@@ -68,4 +68,7 @@ func (uisc *uncompressedImageSizeCache) size(img image.Image) (float64, error) {
 
 	size, err := uncompressedImageSize(img)
 	if err == nil {
-		entry := uncompressedImageSizeCacheEntry{bound
+		entry := uncompressedImageSizeCacheEntry{bounds: img.Bounds().Canon(), size: size}
+		uisc.bounds.Store(entry)
+	}
+	return size
