@@ -81,4 +81,8 @@ func uncompressedImageSize(img image.Image) (float64, error) {
 		return -1, err
 	}
 
-	return
+	return float64(buf.count), nil
+}
+
+func init() {
+	gob.Register(&image.RGBA{}) // need because this is con
