@@ -75,4 +75,10 @@ func (uisc *uncompressedImageSizeCache) size(img image.Image) (float64, error) {
 }
 
 func uncompressedImageSize(img image.Image) (float64, error) {
-	buf := &discar
+	buf := &discardCounter{}
+	err := gob.NewEncoder(buf).Encode(&img)
+	if err != nil {
+		return -1, err
+	}
+
+	return
