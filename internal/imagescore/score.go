@@ -85,4 +85,7 @@ func uncompressedImageSize(img image.Image) (float64, error) {
 }
 
 func init() {
-	gob.Register(&image.RGBA{}) // need because this is con
+	gob.Register(&image.RGBA{}) // need because this is contained in interface
+	gob.Register(&color.RGBA{})
+	gob.Register(&image.Paletted{})
+}
