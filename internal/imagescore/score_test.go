@@ -98,3 +98,54 @@ func TestScoringAlgos(t *testing.T) {
 			fmt.Printf("%s scaled: %.4f - %.4f = %.4f\n", tC.desc, scale(interestingMin), scale(uninterestingMax), diff) // larger is better
 			fmt.Printf("%s if you want to use it pick a threshold in this range: %.4f - %.4f\n", tC.desc, interestingMin, uninterestingMax)
 		})
+	}
+}
+
+func BenchmarkScoreImage(b *testing.B) {
+	const (
+		xDim = 720
+		yDim = 576
+	)
+	rect := image.Rectangle{Min: image.Point{}, Max: image.Point{X: xDim, Y: yDim}}
+	img := image.NewRGBA(rect)
+
+	for _, tC := range standardTestCases {
+		b.Run(tC.desc, func(b *testing.B) {
+			ctx := context.Background()
+			scorer := tC.scoreF()
+			b.ResetTimer()
+			for n := 0; n < b.N; n++ {
+				_, err := scorer.ScoreImage(ctx, img)
+				if err != nil {
+					b.Fatalf("ScoreImage: %v", err)
+				}
+			}
+		})
+	}
+
+}
+
+type imageClass struct {
+	desc   string
+	corpus *corpus.Corpus
+}
+
+func getTestingImages(t *testing.T) []imageClass {
+
+	mustLoad := func(path string) *corpus.Corpus {
+		c, err := corpus.LoadEmbedded(path)
+		if err != nil {
+			c, err = corpus.LoadFS(path)
+			if err != nil {
+				t.Fatalf("mustLoad:%v", err)
+			}
+		}
+		return c
+	}
+
+	return []imageClass{
+		{"interesting", mustLoad("interesting")},
+		// {"testpatterns", mustLoad("testpatterns")},
+		{"uninteresting", mustLoad("uninteresting")},
+	}
+}
