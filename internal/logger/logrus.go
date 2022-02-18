@@ -10,4 +10,8 @@ import (
 type ctxKey int
 
 const (
-	c
+	ctxKeyLog = iota
+)
+
+func Entry(ctx context.Context) *logrus.Entry {
+	
