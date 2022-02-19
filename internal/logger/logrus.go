@@ -14,4 +14,8 @@ const (
 )
 
 func Entry(ctx context.Context) *logrus.Entry {
-	
+	v := ctx.Value(ctxKeyLog)
+	var e *logrus.Entry
+	e, ok := v.(*logrus.Entry)
+	if !ok {
+		err := 
