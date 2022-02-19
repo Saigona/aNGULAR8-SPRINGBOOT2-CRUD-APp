@@ -18,4 +18,6 @@ func Entry(ctx context.Context) *logrus.Entry {
 	var e *logrus.Entry
 	e, ok := v.(*logrus.Entry)
 	if !ok {
-		err := 
+		err := fmt.Errorf("not a *logrus.Entry: %T", v)
+		log := logrus.New().WithFields(nil)
+		lo
