@@ -20,4 +20,10 @@ func Entry(ctx context.Context) *logrus.Entry {
 	if !ok {
 		err := fmt.Errorf("not a *logrus.Entry: %T", v)
 		log := logrus.New().WithFields(nil)
-		lo
+		log.WithError(err).Warn("unable to get log entry")
+		return log
+	}
+	return e
+}
+
+func WithLogEntry(ctx co
