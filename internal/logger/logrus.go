@@ -26,4 +26,5 @@ func Entry(ctx context.Context) *logrus.Entry {
 	return e
 }
 
-func WithLogEntry(ctx co
+func WithLogEntry(ctx context.Context, e *logrus.Entry) context.Context {
+	return context.WithValue(ctx, ctxKeyLog, e
