@@ -12,4 +12,5 @@ import (
 	"jonwillia.ms/roku"
 )
 
-func Run(ctx
+func Run(ctx context.Context) func() (*roku.Remote, error) {
+	log := logger.Entry(ctx)
