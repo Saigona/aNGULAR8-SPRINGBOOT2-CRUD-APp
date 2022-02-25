@@ -14,3 +14,9 @@ import (
 
 func Run(ctx context.Context) func() (*roku.Remote, error) {
 	log := logger.Entry(ctx)
+
+	const dur = time.Minute
+	var (
+		mutex  sync.Mutex
+		remote *roku.Remote
+		errC   = ma
