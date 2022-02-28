@@ -19,4 +19,8 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 	var (
 		mutex  sync.Mutex
 		remote *roku.Remote
-		errC   = ma
+		errC   = make(chan error)
+		timer  = time.NewTimer(time.Minute)
+	)
+
+	g, ctx := errgroup.Wi
