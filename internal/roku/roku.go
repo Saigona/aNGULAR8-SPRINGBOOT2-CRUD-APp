@@ -23,4 +23,9 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 		timer  = time.NewTimer(time.Minute)
 	)
 
-	g, ctx := errgroup.Wi
+	g, ctx := errgroup.WithContext(ctx)
+	g.Go(func() error {
+	LOOP:
+		for ctx.Err() == nil {
+
+			devs, er
