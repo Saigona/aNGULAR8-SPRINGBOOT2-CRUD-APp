@@ -28,4 +28,8 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 	LOOP:
 		for ctx.Err() == nil {
 
-			devs, er
+			devs, err := roku.FindRokuDevices()
+			switch {
+			case len(devs) == 0:
+				fallthrough
+	
