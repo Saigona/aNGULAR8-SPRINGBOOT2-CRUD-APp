@@ -34,4 +34,8 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 				fallthrough
 			case err != nil:
 				log.WithError(err).Warn("roku.FindRokuDevices")
-				time.Sleep(10 * time.
+				time.Sleep(10 * time.Second) // TODO not abortable
+				continue LOOP
+			}
+			dev := devs[0]
+			log.Infof("fo
