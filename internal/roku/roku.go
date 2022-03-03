@@ -32,4 +32,6 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 			switch {
 			case len(devs) == 0:
 				fallthrough
-	
+			case err != nil:
+				log.WithError(err).Warn("roku.FindRokuDevices")
+				time.Sleep(10 * time.
