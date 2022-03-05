@@ -38,4 +38,6 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 				continue LOOP
 			}
 			dev := devs[0]
-			log.Infof("fo
+			log.Infof("found roku %s : %s", dev.Addr, dev.Name)
+			r, err := roku.NewRemote(dev.Addr)
+			i
