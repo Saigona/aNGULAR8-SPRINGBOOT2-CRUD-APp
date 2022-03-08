@@ -40,4 +40,6 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 			dev := devs[0]
 			log.Infof("found roku %s : %s", dev.Addr, dev.Name)
 			r, err := roku.NewRemote(dev.Addr)
-			i
+			if err != nil {
+				log.WithError(err).Warn("roku.NewRemote")
+				time.Sleep(10 * time.Secon
