@@ -42,4 +42,8 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 			r, err := roku.NewRemote(dev.Addr)
 			if err != nil {
 				log.WithError(err).Warn("roku.NewRemote")
-				time.Sleep(10 * time.Secon
+				time.Sleep(10 * time.Second) // TODO not abortable
+				continue LOOP
+			}
+			mutex.Lock()
+			remo
