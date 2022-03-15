@@ -46,4 +46,11 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 				continue LOOP
 			}
 			mutex.Lock()
-			remo
+			remote = r
+			mutex.Unlock()
+			select {
+			case <-errC:
+			case <-ctx.Done():
+			case <-timer.C:
+			}
+			if 
