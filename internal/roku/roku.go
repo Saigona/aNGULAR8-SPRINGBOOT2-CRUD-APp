@@ -62,3 +62,7 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 		return nil
 	})
 	// no g.Wait :)
+
+	return func() (*roku.Remote, error) {
+		mutex.Lock()
+		defer mutex.Unlock()
