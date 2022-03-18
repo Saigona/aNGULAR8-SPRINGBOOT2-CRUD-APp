@@ -53,4 +53,12 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 			case <-ctx.Done():
 			case <-timer.C:
 			}
-			if 
+			if !timer.Stop() {
+				<-timer.C
+			}
+			timer.Reset(dur)
+		}
+
+		return nil
+	})
+	// no g.Wait :)
