@@ -66,3 +66,8 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 	return func() (*roku.Remote, error) {
 		mutex.Lock()
 		defer mutex.Unlock()
+		if remote == nil {
+			return nil, errors.New("no roku")
+		}
+
+		return remote
