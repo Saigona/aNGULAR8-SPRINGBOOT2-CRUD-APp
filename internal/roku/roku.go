@@ -70,4 +70,10 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 			return nil, errors.New("no roku")
 		}
 
-		return remote
+		return remote, nil
+	}
+}
+
+func On(remote *roku.Remote, u string) error {
+
+	err := remote.LaunchWi
