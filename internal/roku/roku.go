@@ -76,4 +76,5 @@ func Run(ctx context.Context) func() (*roku.Remote, error) {
 
 func On(remote *roku.Remote, u string) error {
 
-	err := remote.LaunchWi
+	err := remote.LaunchWithValues(&roku.App{Id: "63218", Name: "Roku Stream Tester"},
+		url.Values
