@@ -80,4 +80,7 @@ func On(remote *roku.Remote, u string) error {
 		url.Values{
 			"live":          {"true"},
 			"autoCookie":    {"true"},
-			"debugVideoHud": {"fal
+			"debugVideoHud": {"false"},
+			"url":           {u},
+			"fmt":           {"HLS"},
+			"drmParams":   
