@@ -83,4 +83,5 @@ func On(remote *roku.Remote, u string) error {
 			"debugVideoHud": {"false"},
 			"url":           {u},
 			"fmt":           {"HLS"},
-			"drmParams":   
+			"drmParams":     {"{}"},
+			"headers":       {`{"Referer":"https://kcnawatch.org/korea-centr
