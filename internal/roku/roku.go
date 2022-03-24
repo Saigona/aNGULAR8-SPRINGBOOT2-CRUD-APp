@@ -84,4 +84,6 @@ func On(remote *roku.Remote, u string) error {
 			"url":           {u},
 			"fmt":           {"HLS"},
 			"drmParams":     {"{}"},
-			"headers":       {`{"Referer":"https://kcnawatch.org/korea-centr
+			"headers":       {`{"Referer":"https://kcnawatch.org/korea-central-tv-livestream/"}`}, // TODO
+			"metadata":      {`{"isFullHD":false}`},
+			"co
