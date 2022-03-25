@@ -86,4 +86,11 @@ func On(remote *roku.Remote, u string) error {
 			"drmParams":     {"{}"},
 			"headers":       {`{"Referer":"https://kcnawatch.org/korea-central-tv-livestream/"}`}, // TODO
 			"metadata":      {`{"isFullHD":false}`},
-			"co
+			"cookies":       {"[]"},
+		},
+	)
+	if err != nil {
+		return err
+	}
+
+	for i := 0; i <
