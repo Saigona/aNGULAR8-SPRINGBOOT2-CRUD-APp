@@ -95,4 +95,9 @@ func On(remote *roku.Remote, u string) error {
 
 	for i := 0; i < 10; i++ { // try to be a little quiet
 		err := remote.VolumeDown()
-		if err != 
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
