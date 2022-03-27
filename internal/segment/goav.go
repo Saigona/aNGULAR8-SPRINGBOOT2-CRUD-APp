@@ -126,3 +126,89 @@ func (goav *GoAV) HandleSegment(req *Request, resp *Response) (err error) {
 	// Dump information about file onto standard error
 	if goav.VerboseDecoder {
 		pFormatContext.AvDumpFormat(0, file, 0)
+	}
+
+	// Find the first video stream
+	for i := 0; i < int(pFormatContext.NbStreams()); i++ {
+		switch pFormatContext.Streams()[i].CodecParameters().CodecType() {
+		case avcodec.AVMEDIA_TYPE_VIDEO:
+			// Get a pointer to the codec context for the video stream
+			pCodecCtxOrig := pFormatContext.Streams()[i].Codec()
+			fmt.Println(pFormatContext.Streams()[i].CodecParameters().CodecType())
+
+			// Find the decoder for the video stream
+			pCodec := avcodec.AvcodecFindDecoder(avcodec.CodecId(pCodecCtxOrig.GetCodecId()))
+			if pCodec == nil {
+				return errors.New("unsupported codec")
+			}
+
+			// Copy context
+			pCodecCtx := pCodec.AvcodecAllocContext3()
+			defer pCodecCtx.AvcodecClose()
+
+			if e := avcodec.AvcodecParametersToContext(pCodecCtx, pFormatContext.Streams()[i].CodecParameters()); e != 0 {
+				return errors.Wrap(goavError(e), "coouldn't copy codec context: AvcodecParametersToContext")
+			}
+
+			// Open codec
+			if e := pCodecCtx.AvcodecOpen2(pCodec, nil); e < 0 {
+				return errors.Wrap(goavError(e), "coouldn't open codec")
+			}
+
+			// Allocate video frame
+			pFrame := avutil.AvFrameAlloc()
+			if pFrame == nil {
+				return errors.New("unable to allocate Frame")
+
+			}
+			defer avutil.AvFrameFree(pFrame)
+
+			// Allocate an AVFrame structure
+			pFrameRGB := avutil.AvFrameAlloc()
+			if pFrameRGB == nil {
+				return errors.New("unable to allocate RGB Frame")
+			}
+			defer avutil.AvFrameFree(pFrameRGB)
+
+			// Determine required buffer size and allocate buffer
+			numBytes := avutil.AvImageGetBufferSize(avutil.AV_PIX_FMT_RGB24, pCodecCtx.Width(),
+				pCodecCtx.Height(), 1)
+			buffer := avutil.AvAllocateImageBuffer(numBytes)
+			defer avutil.AvFreeImageBuffer(buffer)
+
+			// Assign appropriate parts of buffer to image planes in pFrameRGB
+			// Note that pFrameRGB is an AVFrame, but AVFrame is a superset
+			// of AVPicture
+			data := (*[8]*uint8)(unsafe.Pointer(pFrameRGB.DataItem(0)))
+			lineSize := (*[8]int32)(unsafe.Pointer(pFrameRGB.LinesizePtr()))
+
+			if e := avutil.AvImageFillArrays(*data, *lineSize, buffer, avutil.AV_PIX_FMT_RGB24, pCodecCtx.Width(), pCodecCtx.Height(), 1); e < 0 {
+				return errors.Wrap(goavError(e), "coouldn't AvImageFillArrays")
+			}
+
+			// initialize SWS context for software scaling
+			swsCtx := swscale.SwsGetcontext(
+				pCodecCtx.Width(),
+				pCodecCtx.Height(),
+				pCodecCtx.PixFmt(),
+				pCodecCtx.Width(),
+				pCodecCtx.Height(),
+				avutil.AV_PIX_FMT_RGB24,
+				swscale.SWS_BILINEAR, nil,
+				nil,
+				nil,
+			)
+			defer swscale.SwsFreecontext(swsCtx)
+
+			frameNumber := 0
+			packet := avcodec.AvPacketAlloc()
+			defer avcodec.AvPacketFree(packet)
+
+			for pFormatContext.AvReadFrame(packet) >= 0 {
+				// Is this a packet from the video stream?
+				if packet.StreamIndex() == i {
+					// Decode video frame
+					response := avcodec.AvcodecSendPacket(pCodecCtx, packet)
+					if response < 0 {
+						return errors.Wrap(goavError(response), "error while sending a packet to the decoder")
+					}
