@@ -212,3 +212,91 @@ func (goav *GoAV) HandleSegment(req *Request, resp *Response) (err error) {
 					if response < 0 {
 						return errors.Wrap(goavError(response), "error while sending a packet to the decoder")
 					}
+					for response >= 0 {
+						response = avcodec.AvcodecReceiveFrame(pCodecCtx, pFrame)
+						if response == avutil.AVERROR_EAGAIN || response == avutil.AVERROR_EOF {
+							break
+						} else if response < 0 {
+							log.WithError(goavError(response)).Warn("Error while receiving a frame from the decoder")
+							time.Sleep(time.Millisecond) // only seen as helpful on linux
+							continue
+						}
+
+						// TODO: everything below this could be skipped if we could get the count ahead of time
+						// pFormatContext.Streams()[i].NbFrames() returns 0 unfortunately
+
+						// Convert the image from its native format to RGB
+						data := (*[8]*uint8)(unsafe.Pointer(pFrame.DataItem(0)))
+						lineSize := (*[8]int32)(unsafe.Pointer(pFrame.LinesizePtr()))
+						dataDst := (*[8]*uint8)(unsafe.Pointer(pFrameRGB.DataItem(0)))
+						lineSizeDst := (*[8]int32)(unsafe.Pointer(pFrameRGB.LinesizePtr()))
+
+						response := swscale.SwsScale(swsCtx, *data,
+							*lineSize, 0, 0,
+							*dataDst, *lineSizeDst)
+						if response < 0 {
+							return errors.Wrap(goavError(response), "error while SwsScale")
+						}
+
+						tmp := (*old_avutil.Frame)(unsafe.Pointer(pFrame))
+						// img, err := old_avutil.GetPictureRGB(tmp) // Doesn't work
+						yimg, err := old_avutil.GetPicture(tmp)
+
+						if err != nil {
+							return errors.Wrap(err, "GetPicture")
+						}
+
+						const ( // constrain weird green box
+							Xdim = 720
+							Ydim = 576
+						)
+
+						constraint := yimg.Rect
+						if constraint.Max.X > Xdim {
+							constraint.Max.X = Xdim
+						}
+						if constraint.Max.Y > Ydim {
+							constraint.Max.Y = Ydim
+						}
+						// convert to RGBA because it serializes easily
+						img := image.NewRGBA(constraint) // TODO: no need to convert to RGBA when running in-process & crop with a zero copy (img.SubImage())
+						draw.Draw(img, yimg.Rect, yimg, image.Point{}, draw.Over)
+						resp.RawImages = append(resp.RawImages, img)
+
+						frameNumber++
+					}
+				}
+			}
+			log.Println("got some frames", frameNumber)
+			// Stop after saving frames of first video straem
+			if frameNumber > 0 {
+				return nil
+			}
+		}
+	}
+	return errors.New("Didn't find a video stream")
+}
+
+func goavError(response int) error {
+	return errors.New(avutil.AvStrerr(response))
+}
+
+func fractionImages(ctx context.Context, resp *Response, err error) {
+	log := logger.Entry(ctx)
+	if err == nil && resp != nil {
+		initLen := len(resp.RawImages)
+		limitImageCount := float64(initLen) * bot.ImageFraction
+		if limitImageCount <= minImages || limitImageCount >= float64(initLen) {
+			return
+		}
+		mod := int(float64(initLen) / limitImageCount)
+		newImages := make([]image.Image, 0, int(limitImageCount))
+		for i, img := range resp.RawImages {
+			if i%mod == 0 {
+				newImages = append(newImages, img)
+			}
+		}
+		resp.RawImages = newImages
+		log.Infof("fractionImages %d -> %d", initLen, len(resp.RawImages))
+	}
+}
