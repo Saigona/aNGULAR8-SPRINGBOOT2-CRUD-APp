@@ -7,4 +7,6 @@ import (
 	"testing"
 )
 
-func TestGobEnc
+func TestGobEnc(t *testing.T) {
+	var network bytes.Buffer        // Stand-in for a network connection
+	enc 
