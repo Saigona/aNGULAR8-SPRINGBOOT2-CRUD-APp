@@ -17,4 +17,8 @@ func TestGobEnc(t *testing.T) {
 		t.Fatalf("enc %v", err)
 	}
 	var q image.RGBA
-	err = dec.Dec
+	err = dec.Decode(&q)
+	if err != nil {
+		t.Fatalf("dec %v", err)
+	}
+}
