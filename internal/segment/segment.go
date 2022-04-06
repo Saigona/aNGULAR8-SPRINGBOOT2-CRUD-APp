@@ -6,4 +6,12 @@ import (
 )
 
 type Handler interface {
-	HandleSegment(request *Request, resp *Response) error // yes, an interface pointer as first arg, we'll 
+	HandleSegment(request *Request, resp *Response) error // yes, an interface pointer as first arg, we'll try it!
+}
+
+type Response struct {
+	Label     string
+	RawImages []image.Image
+}
+
+func i
