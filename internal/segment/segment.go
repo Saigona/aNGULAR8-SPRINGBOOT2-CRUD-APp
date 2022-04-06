@@ -6,4 +6,4 @@ import (
 )
 
 type Handler interface {
-	HandleSegment(request *Reques
+	HandleSegment(request *Request, resp *Response) error // yes, an interface pointer as first arg, we'll 
