@@ -14,4 +14,5 @@ type Response struct {
 	RawImages []image.Image
 }
 
-func i
+func init() {
+	gob.Register(&image.RGBA{}) // needed because this is contained in
