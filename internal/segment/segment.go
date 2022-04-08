@@ -15,4 +15,9 @@ type Response struct {
 }
 
 func init() {
-	gob.Register(&image.RGBA{}) // needed because this is contained in
+	gob.Register(&image.RGBA{}) // needed because this is contained in interface
+}
+
+type Request struct {
+	FD uintptr
+}
