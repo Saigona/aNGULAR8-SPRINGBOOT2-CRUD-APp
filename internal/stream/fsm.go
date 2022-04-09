@@ -54,3 +54,73 @@ func (s *Stream) newFSM(ctx context.Context) *FSM {
 			},
 			fsm.Callbacks{
 				"enter_up": func(e *fsm.Event) {
+					select {
+					default:
+					case s.oneShot <- struct{}{}:
+					}
+				},
+				"after_event": func(e *fsm.Event) {
+					log.Tracef("event %s", e.Event)
+					if e.Src != e.Dst {
+						log.Printf("🏳[%s -> %s] %s\n", e.Src, e.Dst, e.Event)
+						up := e.Dst == "up"
+						i32up := int32(0)
+						if up {
+							i32up = 1
+						}
+						atomic.StoreInt32(&s.sendToBot, i32up)
+						if !up {
+							return
+						}
+					}
+				},
+			},
+		)}
+	f.Target = newTimer(f.FSM)
+	return &f
+}
+
+func newTimer(target *fsm.FSM) chan string {
+
+	c := make(chan string, 100) // FIXME: try to avoid a deadlock here when rapidly receiving frames; this should be reworked
+
+	const (
+		duration = 30 * time.Second // TODO move to global config
+		idleDur  = 3 * duration
+	)
+	go func() {
+		idleTimer := time.NewTicker(idleDur)
+
+		for { // bit dodgy but it works
+			select {
+			case <-idleTimer.C:
+				c <- "no_data"
+				continue
+			case event := <-c:
+				target.Event(event)
+				func() {
+					eventTimer := time.NewTimer(duration)
+
+					idleTimer.Reset(idleDur)
+					for {
+						select {
+						case <-idleTimer.C:
+							c <- "no_data"
+							continue
+						case nextEvent := <-c:
+							if nextEvent != event && (nextEvent != "steady") {
+								c <- nextEvent
+								return
+							}
+						case <-eventTimer.C:
+							target.Event(event + "_timer")
+							return
+						}
+					}
+				}()
+			}
+		}
+	}()
+
+	return c
+}
