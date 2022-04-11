@@ -9,3 +9,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+const workerMaxDuration = 10 * time.Second // if the worker appears to be stalled
+
+func (s *
