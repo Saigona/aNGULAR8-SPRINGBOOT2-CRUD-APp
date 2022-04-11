@@ -11,4 +11,5 @@ import (
 
 const workerMaxDuration = 10 * time.Second // if the worker appears to be stalled
 
-func (s *
+func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) error {
+	log 
