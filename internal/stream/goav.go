@@ -15,4 +15,7 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 	log := logger.Entry(ctx)
 	h := s.worker.Handler(ctx)
 
-	timeOut := time.NewTimer(workerM
+	timeOut := time.NewTimer(workerMaxDuration)
+	workerDone := make(chan struct{})
+	go func() {
+		// safety timeout since ne
