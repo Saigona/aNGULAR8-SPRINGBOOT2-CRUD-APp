@@ -18,4 +18,8 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 	timeOut := time.NewTimer(workerMaxDuration)
 	workerDone := make(chan struct{})
 	go func() {
-		// safety timeout since ne
+		// safety timeout since net/rpc doesn't use contexts
+		select {
+		case <-ctx.Done():
+		case <-workerDone:
+		case <
