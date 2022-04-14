@@ -30,3 +30,8 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 		}
 	}()
 
+	var resp segment.Response
+	err := h.HandleSegment(request, &resp)
+	close(workerDone)
+
+	if err 
