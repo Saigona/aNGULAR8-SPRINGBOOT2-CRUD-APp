@@ -22,4 +22,11 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 		select {
 		case <-ctx.Done():
 		case <-workerDone:
-		case <
+		case <-timeOut.C:
+			s.worker.Restart(ctx)
+		}
+		if !timeOut.Stop() {
+			<-timeOut.C
+		}
+	}()
+
