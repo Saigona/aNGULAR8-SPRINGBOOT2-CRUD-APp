@@ -34,4 +34,9 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 	err := h.HandleSegment(request, &resp)
 	close(workerDone)
 
-	if err 
+	if err != nil {
+		return err
+	}
+	log.WithFields(logrus.Fields{
+		"num_images": len(resp.RawImages),
+	}).D
