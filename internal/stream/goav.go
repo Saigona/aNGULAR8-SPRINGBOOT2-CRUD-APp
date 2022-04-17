@@ -42,4 +42,10 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 	}).Debug("got images")
 	for _, img := range resp.RawImages {
 		select {
-		case <-ctx
+		case <-ctx.Done():
+			return nil
+		case s.imageChan <- img:
+		}
+	}
+	return nil
+}
