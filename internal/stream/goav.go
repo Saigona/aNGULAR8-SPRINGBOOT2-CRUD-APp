@@ -39,4 +39,7 @@ func (s *Stream) ProcessSegment(ctx context.Context, request *segment.Request) e
 	}
 	log.WithFields(logrus.Fields{
 		"num_images": len(resp.RawImages),
-	}).D
+	}).Debug("got images")
+	for _, img := range resp.RawImages {
+		select {
+		case <-ctx
