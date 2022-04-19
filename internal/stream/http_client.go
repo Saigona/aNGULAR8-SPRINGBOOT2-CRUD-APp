@@ -11,4 +11,5 @@ import (
 	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
 )
 
-func (s *Stream) httpGet(ctx contex
+func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error) {
+	log := logger.Entry(ctx)
