@@ -6,4 +6,9 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"net/http/httputil"
-	"net/
+	"net/url"
+
+	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
+)
+
+func (s *Stream) httpGet(ctx contex
