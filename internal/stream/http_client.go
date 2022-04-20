@@ -13,3 +13,7 @@ import (
 
 func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error) {
 	log := logger.Entry(ctx)
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		r
