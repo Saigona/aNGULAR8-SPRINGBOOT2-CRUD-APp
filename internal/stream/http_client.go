@@ -16,4 +16,6 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
-		r
+		return nil, err
+	}
+	req.Header.Set("Referer", "https://kcnawatch.org/korea-central-tv-live
