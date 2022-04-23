@@ -18,4 +18,6 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("Referer", "https://kcnawatch.org/korea-central-tv-live
+	req.Header.Set("Referer", "https://kcnawatch.org/korea-central-tv-livestream/") // TODO flag
+	req.Header.Set("Accept", "*/*")
+	// req.Header.Set("Cookie", "
