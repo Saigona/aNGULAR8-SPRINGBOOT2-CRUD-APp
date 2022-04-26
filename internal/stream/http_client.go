@@ -22,4 +22,5 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	req.Header.Set("Accept", "*/*")
 	// req.Header.Set("Cookie", " __qca=P0-44019880-1616793366216; _ga=GA1.2.978268718.1616793363; _gid=GA1.2.523786624.1616793363")
 	req.Header.Set("Accept-Language", "en-us")
-	req.Header.Se
+	req.Header.Set("Accept-Encoding", "identity")
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh
