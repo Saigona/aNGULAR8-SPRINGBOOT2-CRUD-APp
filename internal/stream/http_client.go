@@ -24,4 +24,7 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	req.Header.Set("Accept-Language", "en-us")
 	req.Header.Set("Accept-Encoding", "identity")
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15")
-	// req.Header.Set("X-Playback-Session-Id", "F896728B-8636-4BB1-B
+	// req.Header.Set("X-Playback-Session-Id", "F896728B-8636-4BB1-B4FF-1B235EB4ED9E")
+	var reqStr string
+	if s.flags.DumpHttp {
+		if s, err := http
