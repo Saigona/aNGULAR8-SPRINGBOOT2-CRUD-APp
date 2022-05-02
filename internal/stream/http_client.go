@@ -27,4 +27,5 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	// req.Header.Set("X-Playback-Session-Id", "F896728B-8636-4BB1-B4FF-1B235EB4ED9E")
 	var reqStr string
 	if s.flags.DumpHttp {
-		if s, err := http
+		if s, err := httputil.DumpRequest(req, false); err != nil {
+			return nil, fmt.Errorf("h
