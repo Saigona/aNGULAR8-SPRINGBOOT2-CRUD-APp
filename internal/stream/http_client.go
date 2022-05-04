@@ -28,4 +28,9 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	var reqStr string
 	if s.flags.DumpHttp {
 		if s, err := httputil.DumpRequest(req, false); err != nil {
-			return nil, fmt.Errorf("h
+			return nil, fmt.Errorf("httputil.DumpRequest: %w", err)
+		} else {
+			reqStr = string(s)
+		}
+	}
+
