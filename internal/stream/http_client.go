@@ -34,3 +34,8 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 		}
 	}
 
+	resp, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	if resp.StatusCode != http.Sta
