@@ -38,4 +38,8 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	if err != nil {
 		return nil, err
 	}
-	if resp.StatusCode != http.Sta
+	if resp.StatusCode != http.StatusOK {
+		return resp, fmt.Errorf("bad http code %d", resp.StatusCode)
+	}
+
+	if 
