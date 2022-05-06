@@ -42,4 +42,5 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 		return resp, fmt.Errorf("bad http code %d", resp.StatusCode)
 	}
 
-	if 
+	if s.flags.DumpHttp {
+		if s, err := httputil.DumpResponse(resp, 
