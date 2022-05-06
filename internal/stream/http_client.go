@@ -43,4 +43,6 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 	}
 
 	if s.flags.DumpHttp {
-		if s, err := httputil.DumpResponse(resp, 
+		if s, err := httputil.DumpResponse(resp, false); err != nil {
+			return nil, fmt.Errorf("httputil.DumpResponse: %w", err)
+		}
