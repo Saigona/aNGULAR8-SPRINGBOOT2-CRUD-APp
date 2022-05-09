@@ -50,4 +50,8 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 		}
 	}
 
-	return r
+	return resp, err
+}
+
+func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
+	log := logger
