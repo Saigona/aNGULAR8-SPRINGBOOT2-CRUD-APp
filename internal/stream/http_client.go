@@ -54,4 +54,7 @@ func (s *Stream) httpGet(ctx context.Context, url string) (*http.Response, error
 }
 
 func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
-	log := logger
+	log := logger.Entry(ctx)
+	var err error
+	client := *http.DefaultClient
+	client.Jar, err = cookiejar.
