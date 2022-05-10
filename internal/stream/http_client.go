@@ -57,4 +57,6 @@ func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
 	log := logger.Entry(ctx)
 	var err error
 	client := *http.DefaultClient
-	client.Jar, err = cookiejar.
+	client.Jar, err = cookiejar.New(nil)
+	if err != nil {
+		log.WithError(err).Fatal("http client i
