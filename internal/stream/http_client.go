@@ -59,4 +59,7 @@ func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
 	client := *http.DefaultClient
 	client.Jar, err = cookiejar.New(nil)
 	if err != nil {
-		log.WithError(err).Fatal("http client i
+		log.WithError(err).Fatal("http client init")
+	}
+	transport := *(http.DefaultTransport.(*http.Transport))
+	defProxy :=
