@@ -62,4 +62,7 @@ func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
 		log.WithError(err).Fatal("http client init")
 	}
 	transport := *(http.DefaultTransport.(*http.Transport))
-	defProxy :=
+	defProxy := transport.Proxy
+	transport.Proxy = func(r *http.Request) (*url.URL, error) {
+
+		if s.proxyURL !
