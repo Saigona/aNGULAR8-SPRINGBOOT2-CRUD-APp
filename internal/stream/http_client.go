@@ -70,4 +70,6 @@ func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
 		}
 		return defProxy(r)
 	}
-	client.Transport = &transpo
+	client.Transport = &transport
+	return &client
+}
