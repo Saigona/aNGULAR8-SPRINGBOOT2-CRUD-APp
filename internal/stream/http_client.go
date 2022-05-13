@@ -65,4 +65,9 @@ func (s *Stream) NewHttpClient(ctx context.Context) *http.Client {
 	defProxy := transport.Proxy
 	transport.Proxy = func(r *http.Request) (*url.URL, error) {
 
-		if s.proxyURL !
+		if s.proxyURL != nil {
+			return s.proxyURL, nil
+		}
+		return defProxy(r)
+	}
+	client.Transport = &transpo
