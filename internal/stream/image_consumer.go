@@ -63,3 +63,82 @@ func (s *Stream) consumeImages(ctx context.Context) error {
 	oneShot := false
 	for {
 		select {
+		case <-ctx.Done():
+			return nil
+		case <-s.oneShot:
+			if s.flags.OneShot {
+				oneShot = true
+				log.Println("photo time!")
+			}
+		case img := <-s.imageChan:
+			err := s.consumeImage(ctx, sem, filterFunc, img, oneShot, frameCount)
+			if err != nil {
+				return err
+			}
+			if oneShot {
+				oneShot = false
+			}
+			frameCount++
+		}
+	}
+}
+
+// consumeImage cannot be spawned in its own goroutine because we must ensure the heap is updated synchonously
+func (s *Stream) consumeImage(ctx context.Context,
+	sem *semaphore.Weighted,
+	filterFunc filter.FilterFunc,
+	img image.Image,
+	oneShot bool,
+	frameCount int,
+) error {
+	ctx, log := withFrameCount(ctx, frameCount)
+
+	entry := &outputImageEntry{
+		counter: frameCount,
+		done:    false,
+		image:   img,
+	}
+
+	s.outputImagesMutex.Lock()
+	s.outputImages.Push(entry)
+	s.outputImagesMutex.Unlock()
+
+	if err := s.drawImage(ctx, img, oneShot, entry); err != nil {
+		log.WithError(err).Warn("drawImage draw")
+	}
+	err := sem.Acquire(ctx, 1)
+	if err != nil {
+		return err
+	}
+	go func() {
+		defer sem.Release(1)
+		err := s.consumeImageAsync(ctx, filterFunc, img, oneShot, entry)
+		if err != nil {
+			log.WithError(err).Warn("consumeImageAsync")
+		}
+	}()
+	return nil
+}
+
+func (s *Stream) consumeImageAsync(ctx context.Context,
+	filterFunc filter.FilterFunc,
+	img image.Image,
+	oneShot bool,
+	entry *outputImageEntry,
+) error {
+
+	var sendToBot bool
+
+	defer func() { // When finishing filtering an image try to dequeue all done images
+		s.outputImagesMutex.Lock()
+		defer s.outputImagesMutex.Unlock()
+		entry.done = true // done
+		entry.passedFilter = sendToBot
+
+		for {
+			if s.outputImages.Len() == 0 {
+				return
+			}
+			entry := s.outputImages.Pop()
+			if entry == nil {
+				return
