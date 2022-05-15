@@ -142,3 +142,61 @@ func (s *Stream) consumeImageAsync(ctx context.Context,
 			entry := s.outputImages.Pop()
 			if entry == nil {
 				return
+			}
+			ctx, log := withFrameCount(ctx, entry.counter)
+			if !entry.done {
+				s.outputImages.Push(entry)
+				return
+			}
+			if entry.passedFilter {
+				log.Debug("passed filter")
+				s.PushEvent(ctx, "unsteady")
+			} else {
+				log.Trace("failed filter")
+				s.PushEvent(ctx, "steady")
+			}
+			if entry.passedFilter && atomic.LoadInt32(&s.sendToBot) != 0 && s.bot != nil {
+				s.bot.Chan() <- img
+			}
+		}
+	}()
+
+	ok, err := filterFunc(ctx, img)
+	if err != nil {
+		return err
+	}
+	sendToBot = ok
+
+	return nil
+}
+
+func (s *Stream) drawImage(ctx context.Context,
+	img image.Image,
+	oneShot bool,
+	entry *outputImageEntry,
+) error {
+
+	if !oneShot {
+		if s.flags.AnsiArt == 0 {
+			return nil
+		}
+		if entry.counter%(s.flags.AnsiArt) != 0 {
+			return nil
+		}
+	}
+
+	ws, err := unix.IoctlGetWinsize(int(os.Stdout.Fd()), unix.TIOCGWINSZ)
+	if err != nil {
+		return errors.Wrap(err, "unix.IoctlGetWinsize")
+	}
+	ansi, err := ansimage.NewScaledFromImage(img, 8*int(ws.Col), 7*int(ws.Row), color.Black, ansimage.ScaleModeFit, ansimage.DitheringWithChars)
+	if err != nil {
+		return errors.Wrap(err, "ansimage.NewScaledFromImage")
+	}
+	if s.flags.Flicker {
+		// TODO this is unimpressive now that images are fractioned
+		fmt.Print("\033[H\033[2J") // flicker
+	}
+	ansi.Draw()
+	return nil
+}
