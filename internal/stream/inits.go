@@ -7,4 +7,9 @@ import (
 )
 
 func InitWorker() worker.Worker {
-	if someFlag
+	if someFlags.Worker {
+		return &worker.Child{
+			MemQuota: someFlags.WorkerMemQuota,
+		}
+	}
+	if !someFlags.Privse
