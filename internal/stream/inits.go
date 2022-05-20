@@ -12,4 +12,10 @@ func InitWorker() worker.Worker {
 			MemQuota: someFlags.WorkerMemQuota,
 		}
 	}
-	if !someFlags.Privse
+	if !someFlags.Privsep {
+		return &worker.InProcess{}
+	}
+	return &worker.Parent{}
+}
+
+func WithWorker(w worker.Worker)
