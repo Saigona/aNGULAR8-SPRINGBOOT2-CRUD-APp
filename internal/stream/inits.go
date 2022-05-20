@@ -18,4 +18,11 @@ func InitWorker() worker.Worker {
 	return &worker.Parent{}
 }
 
-func WithWorker(w worker.Worker)
+func WithWorker(w worker.Worker) StreamOption {
+	return func(s *Stream) error {
+		s.worker = w
+		return nil
+	}
+}
+
+func WithBot(b 
