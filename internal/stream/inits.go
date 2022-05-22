@@ -25,4 +25,11 @@ func WithWorker(w worker.Worker) StreamOption {
 	}
 }
 
-func WithBot(b 
+func WithBot(b *bot.Bot) StreamOption {
+	return func(s *Stream) error {
+		s.bot = b
+		return nil
+	}
+}
+
+func
