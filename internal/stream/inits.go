@@ -34,4 +34,7 @@ func WithBot(b *bot.Bot) StreamOption {
 
 func WithRokuCB(rokuCB func() (*roku.Remote, error)) StreamOption {
 	return func(s *Stream) error {
-		s.rokuCB = ro
+		s.rokuCB = rokuCB
+		return nil
+	}
+}
