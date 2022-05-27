@@ -12,4 +12,7 @@ import (
 
 const (
 	minPollDuration = time.Second
-	maxPol
+	maxPollDuration = time.Minute
+)
+
+func (s *Stream) doPlaylist(ctx context.Context, u *url.URL) (*m3u8
