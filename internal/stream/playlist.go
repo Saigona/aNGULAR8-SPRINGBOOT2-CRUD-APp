@@ -25,4 +25,7 @@ func (s *Stream) doPlaylist(ctx context.Context, u *url.URL) (*m3u8.MediaPlaylis
 		return nil, err
 	}
 	if err := resp.Body.Close(); err != nil {
-		re
+		return nil, err
+	}
+	if listType != m3u8.MEDIA {
+		return nil, fmt.Errorf("playlist is 
