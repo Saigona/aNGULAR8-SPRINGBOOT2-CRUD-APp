@@ -122,3 +122,22 @@ func (s *Stream) handleSegments(ctx context.Context, mediapl *m3u8.MediaPlaylist
 			request := &segment.Request{FD: rFD}
 
 			err = s.ProcessSegment(ctx, request) // TODO retries?
+			processDone := time.Now().Sub(start)
+			s.segmentMap[*tsURL] = struct{}{}
+
+			log.WithFields(logrus.Fields{
+				"get_dur":     getDone,
+				"process_dur": (processDone - getDone),
+				"overall_dur": processDone,
+				"copy_dur":    copyDur,
+			}).Infof("processed segment %s", name)
+
+			return err
+		}()
+		if err != nil {
+			log.WithError(err).Error("processing segment")
+		}
+	}
+	log.WithField("seg_count", segCount).Info("segs processed")
+	return nil
+}
