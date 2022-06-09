@@ -15,4 +15,7 @@ import (
 	my_roku "github.com/WIZARDISHUNGRY/hls-await/internal/roku"
 	"github.com/WIZARDISHUNGRY/hls-await/internal/worker"
 	"github.com/WIZARDISHUNGRY/hls-await/pkg/heap"
-	"github.com/WIZARDISHUNGRY/hls-awai
+	"github.com/WIZARDISHUNGRY/hls-await/pkg/proxy"
+	"github.com/looplab/fsm"
+	"github.com/pkg/errors"
+	"github.com/sirup
