@@ -14,4 +14,5 @@ import (
 	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
 	my_roku "github.com/WIZARDISHUNGRY/hls-await/internal/roku"
 	"github.com/WIZARDISHUNGRY/hls-await/internal/worker"
-	"gith
+	"github.com/WIZARDISHUNGRY/hls-await/pkg/heap"
+	"github.com/WIZARDISHUNGRY/hls-awai
