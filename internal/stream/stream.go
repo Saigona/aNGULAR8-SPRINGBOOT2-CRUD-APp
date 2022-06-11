@@ -18,4 +18,9 @@ import (
 	"github.com/WIZARDISHUNGRY/hls-await/pkg/proxy"
 	"github.com/looplab/fsm"
 	"github.com/pkg/errors"
-	"github.com/sirup
+	"github.com/sirupsen/logrus"
+	"golang.org/x/sync/errgroup"
+	"jonwillia.ms/roku"
+)
+
+type StreamOption f
