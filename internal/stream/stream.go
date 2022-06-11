@@ -23,4 +23,7 @@ import (
 	"jonwillia.ms/roku"
 )
 
-type StreamOption f
+type StreamOption func(s *Stream) error
+
+func NewStream(opts ...StreamOption) (*Stream, error) {
+
