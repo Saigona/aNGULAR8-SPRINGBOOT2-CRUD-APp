@@ -27,3 +27,9 @@ type StreamOption func(s *Stream) error
 
 func NewStream(opts ...StreamOption) (*Stream, error) {
 
+	s := newStream()
+
+	for _, opt := range opts {
+		err := opt(s)
+		if err != nil {
+	
