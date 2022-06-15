@@ -32,4 +32,9 @@ func NewStream(opts ...StreamOption) (*Stream, error) {
 	for _, opt := range opts {
 		err := opt(s)
 		if err != nil {
-	
+			return nil, err
+		}
+	}
+
+	if !s.flags.Worker {
+		target, err := s.url.Parse("/"
