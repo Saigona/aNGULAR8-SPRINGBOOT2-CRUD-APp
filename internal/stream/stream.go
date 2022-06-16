@@ -37,4 +37,8 @@ func NewStream(opts ...StreamOption) (*Stream, error) {
 	}
 
 	if !s.flags.Worker {
-		target, err := s.url.Parse("/"
+		target, err := s.url.Parse("/")
+		if err != nil {
+			return nil, err
+		}
+		u, err := proxy.NewSingleHostReverseProxy(c
