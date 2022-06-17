@@ -41,4 +41,6 @@ func NewStream(opts ...StreamOption) (*Stream, error) {
 		if err != nil {
 			return nil, err
 		}
-		u, err := proxy.NewSingleHostReverseProxy(c
+		u, err := proxy.NewSingleHostReverseProxy(context.TODO(), target, false)
+		if err != nil {
+			return nil, errors.Wrap(err, "NewSingleHostReverseProxy")
