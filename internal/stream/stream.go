@@ -52,4 +52,11 @@ func NewStream(opts ...StreamOption) (*Stream, error) {
 	return s, nil
 }
 
-func WithURL(u *
+func WithURL(u *url.URL) StreamOption {
+	return func(s *Stream) error {
+		s.url = u
+		return nil
+	}
+}
+
+ty
