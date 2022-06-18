@@ -59,4 +59,8 @@ func WithURL(u *url.URL) StreamOption {
 	}
 }
 
-ty
+type Stream struct {
+	rokuCB        func() (*roku.Remote, error)
+	url, proxyURL *url.URL
+
+	oneS
