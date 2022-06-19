@@ -63,4 +63,7 @@ type Stream struct {
 	rokuCB        func() (*roku.Remote, error)
 	url, proxyURL *url.URL
 
-	oneS
+	oneShot    chan struct{}
+	imageChan  chan image.Image
+	flags      *flags
+	segmentMap map[url.URL]struct{
