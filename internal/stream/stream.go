@@ -66,4 +66,9 @@ type Stream struct {
 	oneShot    chan struct{}
 	imageChan  chan image.Image
 	flags      *flags
-	segmentMap map[url.URL]struct{
+	segmentMap map[url.URL]struct{}
+	fsm        *FSM
+
+	worker    worker.Worker
+	bot       *bot.Bot
+	sendToBot int32 //
