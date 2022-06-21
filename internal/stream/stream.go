@@ -71,4 +71,8 @@ type Stream struct {
 
 	worker    worker.Worker
 	bot       *bot.Bot
-	sendToBot int32 //
+	sendToBot int32 // for atomic
+
+	client            *http.Client
+	outputImages      *heap.Heap[*outputImageEntry]
+	outp
