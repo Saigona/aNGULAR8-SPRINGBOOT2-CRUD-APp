@@ -75,4 +75,9 @@ type Stream struct {
 
 	client            *http.Client
 	outputImages      *heap.Heap[*outputImageEntry]
-	outp
+	outputImagesMutex sync.Mutex
+}
+
+type outputImageEntry struct {
+	counter            int
+	passe
