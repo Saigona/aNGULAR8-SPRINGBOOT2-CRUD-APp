@@ -86,3 +86,5 @@ type outputImageEntry struct {
 
 func newStream() *Stream {
 	s := &Stream{
+		oneShot:    make(chan struct{}, 1),
+		imageChan:  make(chan image.Image, 100),
