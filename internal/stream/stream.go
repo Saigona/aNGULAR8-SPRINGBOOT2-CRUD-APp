@@ -80,4 +80,9 @@ type Stream struct {
 
 type outputImageEntry struct {
 	counter            int
-	passe
+	passedFilter, done bool
+	image              image.Image
+}
+
+func newStream() *Stream {
+	s := &Stream{
