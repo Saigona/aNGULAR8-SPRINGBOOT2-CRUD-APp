@@ -89,4 +89,8 @@ func newStream() *Stream {
 		oneShot:    make(chan struct{}, 1),
 		imageChan:  make(chan image.Image, 100), // TODO magic size
 		segmentMap: make(map[url.URL]struct{}),
-		outputImages: heap.NewHeap(func(a
+		outputImages: heap.NewHeap(func(a, b *outputImageEntry) bool {
+			return a.counter < b.counter
+		}),
+	}
+	return s
