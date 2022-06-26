@@ -94,3 +94,10 @@ func newStream() *Stream {
 		}),
 	}
 	return s
+}
+func (s *Stream) close() error {
+	close(s.oneShot)
+	close(s.imageChan)
+	return nil
+}
+func (s *Stream) OneS
