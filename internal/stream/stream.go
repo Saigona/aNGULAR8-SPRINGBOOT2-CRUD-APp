@@ -100,4 +100,6 @@ func (s *Stream) close() error {
 	close(s.imageChan)
 	return nil
 }
-func (s *Stream) OneS
+func (s *Stream) OneShot() chan<- struct{} { return s.oneShot }
+
+func (s *Stream) Run(ctx context.Co
