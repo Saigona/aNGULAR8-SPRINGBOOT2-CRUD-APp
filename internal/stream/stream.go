@@ -102,4 +102,7 @@ func (s *Stream) close() error {
 }
 func (s *Stream) OneShot() chan<- struct{} { return s.oneShot }
 
-func (s *Stream) Run(ctx context.Co
+func (s *Stream) Run(ctx context.Context) error {
+
+	log := logger.Entry(ctx)
+	level, err := logrus.ParseLeve
