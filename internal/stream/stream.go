@@ -105,4 +105,10 @@ func (s *Stream) OneShot() chan<- struct{} { return s.oneShot }
 func (s *Stream) Run(ctx context.Context) error {
 
 	log := logger.Entry(ctx)
-	level, err := logrus.ParseLeve
+	level, err := logrus.ParseLevel(s.flags.LogLevel)
+	if err != nil {
+		return err
+	}
+	log.Logger.SetLevel(level)
+
+	s.fsm = 
