@@ -115,4 +115,10 @@ func (s *Stream) Run(ctx context.Context) error {
 	s.client = s.NewHttpClient(ctx)
 
 	if s.flags.DumpFSM {
-		fmt.P
+		fmt.Println(fsm.Visualize(s.GetFSM()))
+		os.Exit(0)
+	}
+
+	err = s.worker.Start(ctx)
+	if err != nil {
+		return fmt
