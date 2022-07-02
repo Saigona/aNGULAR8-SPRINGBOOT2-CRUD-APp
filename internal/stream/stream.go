@@ -111,4 +111,8 @@ func (s *Stream) Run(ctx context.Context) error {
 	}
 	log.Logger.SetLevel(level)
 
-	s.fsm = 
+	s.fsm = s.newFSM(ctx)
+	s.client = s.NewHttpClient(ctx)
+
+	if s.flags.DumpFSM {
+		fmt.P
