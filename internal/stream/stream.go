@@ -121,4 +121,10 @@ func (s *Stream) Run(ctx context.Context) error {
 
 	err = s.worker.Start(ctx)
 	if err != nil {
-		return fmt
+		return fmt.Errorf("%T.Start %w", s.worker, err)
+	}
+
+	defer s.close()
+	g, ctx := errgroup.WithContext(ctx)
+
+	g.
