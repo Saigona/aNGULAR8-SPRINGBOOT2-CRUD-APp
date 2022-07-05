@@ -133,4 +133,9 @@ func (s *Stream) Run(ctx context.Context) error {
 	return g.Wait()
 }
 
-func (s *Stream) processPlaylist(ctx context.Context
+func (s *Stream) processPlaylist(ctx context.Context) error {
+	log := logger.Entry(ctx)
+
+	pollDuration := minPollDuration
+	for {
+		s
