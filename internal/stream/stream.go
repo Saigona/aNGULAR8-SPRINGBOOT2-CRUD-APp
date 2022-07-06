@@ -138,4 +138,6 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 
 	pollDuration := minPollDuration
 	for {
-		s
+		start := time.Now()
+		mediapl, err := s.doPlaylist(ctx, s.url)
+		if err != n
