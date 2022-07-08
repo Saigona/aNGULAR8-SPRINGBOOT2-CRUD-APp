@@ -149,4 +149,8 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 				if tdDuration > minPollDuration {
 					pollDuration = tdDuration
 				}
-				
+				if tdDuration > maxPollDuration {
+					pollDuration = maxPollDuration
+				}
+			}
+			err := 
