@@ -145,4 +145,8 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 			pollDuration = minPollDuration
 		} else {
 			if dur := mediapl.TargetDuration; dur > 0 {
-				tdDuration := time.Duration(dur * float64(time
+				tdDuration := time.Duration(dur * float64(time.Second))
+				if tdDuration > minPollDuration {
+					pollDuration = tdDuration
+				}
+				
