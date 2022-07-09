@@ -155,4 +155,8 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 			}
 			err := s.handleSegments(ctx, mediapl)
 			if err != nil {
-				log.Error("handleSegments"
+				log.Error("handleSegments", err)
+			}
+		}
+		elapsed := time.Now().Sub(start)
+		sleepFor := pollDuration - 
