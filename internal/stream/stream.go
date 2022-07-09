@@ -153,4 +153,6 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 					pollDuration = maxPollDuration
 				}
 			}
-			err := 
+			err := s.handleSegments(ctx, mediapl)
+			if err != nil {
+				log.Error("handleSegments"
