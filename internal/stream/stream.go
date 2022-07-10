@@ -159,4 +159,8 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 			}
 		}
 		elapsed := time.Now().Sub(start)
-		sleepFor := pollDuration - 
+		sleepFor := pollDuration - elapsed
+		if sleepFor < minPollDuration {
+			sleepFor = minPollDuration
+		}
+		timer :=
