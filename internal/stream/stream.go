@@ -163,4 +163,6 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 		if sleepFor < minPollDuration {
 			sleepFor = minPollDuration
 		}
-		timer :=
+		timer := time.NewTimer(pollDuration)
+		log.WithField("elapsed_time", elapsed).
+			Wi
