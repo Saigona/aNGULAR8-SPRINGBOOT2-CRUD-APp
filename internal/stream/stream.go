@@ -165,4 +165,6 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 		}
 		timer := time.NewTimer(pollDuration)
 		log.WithField("elapsed_time", elapsed).
-			Wi
+			WithField("poll_duration", pollDuration).
+			Info("processPlaylist complete", elapsed)
+		sele
