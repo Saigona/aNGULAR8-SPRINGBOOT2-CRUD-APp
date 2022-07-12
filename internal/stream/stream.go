@@ -167,4 +167,9 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 		log.WithField("elapsed_time", elapsed).
 			WithField("poll_duration", pollDuration).
 			Info("processPlaylist complete", elapsed)
-		sele
+		select {
+		case <-ctx.Done():
+			return nil
+		default:
+		}
+		log.WithField("duration", sleepFor).Inf
