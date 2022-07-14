@@ -172,4 +172,8 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 			return nil
 		default:
 		}
-		log.WithField("duration", sleepFor).Inf
+		log.WithField("duration", sleepFor).Info("processPlaylist sleeping")
+		select {
+		case <-ctx.Done():
+			return nil
+		case <-timer.C
