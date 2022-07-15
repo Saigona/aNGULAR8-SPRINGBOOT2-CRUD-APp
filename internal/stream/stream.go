@@ -176,4 +176,11 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 		select {
 		case <-ctx.Done():
 			return nil
-		case <-timer.C
+		case <-timer.C:
+		}
+	}
+}
+
+func (s *Stream) LaunchRoku() error {
+	remote, err := s.RokuCB()
+	if e
