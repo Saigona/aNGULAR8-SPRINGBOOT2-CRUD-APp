@@ -183,4 +183,10 @@ func (s *Stream) processPlaylist(ctx context.Context) error {
 
 func (s *Stream) LaunchRoku() error {
 	remote, err := s.RokuCB()
-	if e
+	if err != nil {
+		return err
+	}
+	return my_roku.On(remote, s.url.String())
+}
+
+func (s *St
