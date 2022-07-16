@@ -189,4 +189,6 @@ func (s *Stream) LaunchRoku() error {
 	return my_roku.On(remote, s.url.String())
 }
 
-func (s *St
+func (s *Stream) RokuCB() (*roku.Remote, error) {
+	return s.rokuCB()
+}
