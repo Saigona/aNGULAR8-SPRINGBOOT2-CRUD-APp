@@ -15,4 +15,12 @@ import (
 	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
 	"github.com/WIZARDISHUNGRY/hls-await/internal/segment"
 	"github.com/WIZARDISHUNGRY/hls-await/pkg/unixmsg"
-	"github.com/pkg
+	"github.com/pkg/errors"
+)
+
+const (
+	durWaitBeforeStopTheWorld = 2 * time.Second
+	maxConsecutivePanics      = 2
+)
+
+ty
