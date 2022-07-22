@@ -29,4 +29,6 @@ type Child struct {
 	MemQuota  int
 }
 
-func
+func (c *Child) Start(ctx context.Context) error {
+	var retErr error
+	c.once.Do(f
