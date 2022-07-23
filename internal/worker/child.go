@@ -31,4 +31,7 @@ type Child struct {
 
 func (c *Child) Start(ctx context.Context) error {
 	var retErr error
-	c.once.Do(f
+	c.once.Do(func() { // This should block and then error out
+		retErr = c.runWorker(ctx)
+	})
+	ret
