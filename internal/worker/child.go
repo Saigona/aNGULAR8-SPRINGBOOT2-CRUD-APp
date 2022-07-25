@@ -34,4 +34,8 @@ func (c *Child) Start(ctx context.Context) error {
 	c.once.Do(func() { // This should block and then error out
 		retErr = c.runWorker(ctx)
 	})
-	ret
+	return retErr
+}
+
+func (c *Child) Restart(ctx context.Context) {
+	log := logger.Entry(ctx)
