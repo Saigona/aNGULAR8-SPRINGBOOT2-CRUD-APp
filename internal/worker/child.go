@@ -39,3 +39,7 @@ func (c *Child) Start(ctx context.Context) error {
 
 func (c *Child) Restart(ctx context.Context) {
 	log := logger.Entry(ctx)
+	log.Fatalf("We should never be restarting a child worker.")
+}
+
+func (c *Chi
