@@ -44,3 +44,8 @@ func (c *Child) Restart(ctx context.Context) {
 
 func (c *Child) runWorker(ctx context.Context) error {
 	ctx, cancel := context.WithCancel(ctx)
+	defer cancel()
+	log := logger.Entry(ctx)
+	f, err := fromFD(WORKER_FD)
+	if err != nil {
+		r
