@@ -42,4 +42,5 @@ func (c *Child) Restart(ctx context.Context) {
 	log.Fatalf("We should never be restarting a child worker.")
 }
 
-func (c *Chi
+func (c *Child) runWorker(ctx context.Context) error {
+	ctx, cancel := context.WithCancel(ctx)
