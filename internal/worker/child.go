@@ -48,4 +48,10 @@ func (c *Child) runWorker(ctx context.Context) error {
 	log := logger.Entry(ctx)
 	f, err := fromFD(WORKER_FD)
 	if err != nil {
-		r
+		return err
+	}
+	defer f.Close()
+
+	l, err := net.FileListener(f)
+	if err != nil {
+		ret
