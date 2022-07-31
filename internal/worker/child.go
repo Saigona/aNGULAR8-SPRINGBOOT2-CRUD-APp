@@ -54,4 +54,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 
 	l, err := net.FileListener(f)
 	if err != nil {
-		ret
+		return fmt.Errorf("net.FileListener: %w", err)
+	}
+	listener := l.(*net.UnixListener)
+	go func() {
+		// fu
