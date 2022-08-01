@@ -58,4 +58,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 	}
 	listener := l.(*net.UnixListener)
 	go func() {
-		// func (*ListenConfig) Listen is the way to make this abortable by context and we don't have th
+		// func (*ListenConfig) Listen is the way to make this abortable by context and we don't have that here
+		<-ctx.Done()
+		listener.Close()
+	}()
+
+	c.memstatsC = make(chan err
