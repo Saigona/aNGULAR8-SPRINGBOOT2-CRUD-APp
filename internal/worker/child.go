@@ -63,4 +63,7 @@ func (c *Child) runWorker(ctx context.Context) error {
 		listener.Close()
 	}()
 
-	c.memstatsC = make(chan err
+	c.memstatsC = make(chan error, 1)
+	go func() {
+		bToMb := func(b uint64) float64 {
+			return float64(b) / 1024
