@@ -66,4 +66,7 @@ func (c *Child) runWorker(ctx context.Context) error {
 	c.memstatsC = make(chan error, 1)
 	go func() {
 		bToMb := func(b uint64) float64 {
-			return float64(b) / 1024
+			return float64(b) / 1024 / 1024
+		}
+		getRss := func() (uint64, error) {
+			buf, err := os.ReadFile("/proc/self/s
