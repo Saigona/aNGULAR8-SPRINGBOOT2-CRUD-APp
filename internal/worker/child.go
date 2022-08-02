@@ -69,4 +69,10 @@ func (c *Child) runWorker(ctx context.Context) error {
 			return float64(b) / 1024 / 1024
 		}
 		getRss := func() (uint64, error) {
-			buf, err := os.ReadFile("/proc/self/s
+			buf, err := os.ReadFile("/proc/self/statm")
+			if err != nil {
+				return 0, err
+			}
+
+			fields := strings.Split(string(buf), " ")
+			if len
