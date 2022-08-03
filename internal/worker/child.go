@@ -79,4 +79,7 @@ func (c *Child) runWorker(ctx context.Context) error {
 				return 0, errors.New("Cannot parse statm")
 			}
 
-			rss, err := s
+			rss, err := strconv.ParseInt(fields[1], 10, 64)
+			if err != nil {
+				return 0, err
+			}
