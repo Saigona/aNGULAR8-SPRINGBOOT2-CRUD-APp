@@ -75,4 +75,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 			}
 
 			fields := strings.Split(string(buf), " ")
-			if len
+			if len(fields) < 2 {
+				return 0, errors.New("Cannot parse statm")
+			}
+
+			rss, err := s
