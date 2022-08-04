@@ -88,4 +88,10 @@ func (c *Child) runWorker(ctx context.Context) error {
 		}
 
 		var (
-			p
+			panicCount    int
+			watchdogCount int
+		)
+		for {
+			var (
+				m   runtime.MemStats
+				err err
