@@ -83,3 +83,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 			if err != nil {
 				return 0, err
 			}
+
+			return uint64(rss) * uint64(os.Getpagesize()), err
+		}
+
+		var (
+			p
