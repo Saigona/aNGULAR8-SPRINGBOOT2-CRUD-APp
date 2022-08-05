@@ -94,4 +94,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 		for {
 			var (
 				m   runtime.MemStats
-				err err
+				err error = nil
+			)
+			timer := time.NewTimer(30 * time.Second) // watchdog
+			select {
+			case <-ctx.Do
