@@ -98,4 +98,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 			)
 			timer := time.NewTimer(30 * time.Second) // watchdog
 			select {
-			case <-ctx.Do
+			case <-ctx.Done():
+				return
+			case err = <-c.memstatsC: // not in the hot path to avoid stop the world while 
