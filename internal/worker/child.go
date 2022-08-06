@@ -100,4 +100,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 			select {
 			case <-ctx.Done():
 				return
-			case err = <-c.memstatsC: // not in the hot path to avoid stop the world while 
+			case err = <-c.memstatsC: // not in the hot path to avoid stop the world while running
+				if !timer.Stop() {
+					<-timer.C
+				}
+				watchdogCount = 0
+			case <-
