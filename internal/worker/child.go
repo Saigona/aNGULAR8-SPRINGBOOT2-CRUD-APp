@@ -105,4 +105,10 @@ func (c *Child) runWorker(ctx context.Context) error {
 					<-timer.C
 				}
 				watchdogCount = 0
-			case <-
+			case <-timer.C:
+				watchdogCount++
+			}
+
+			if err != nil {
+				panicCount++
+				l :=
