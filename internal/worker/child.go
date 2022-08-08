@@ -111,4 +111,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 
 			if err != nil {
 				panicCount++
-				l :=
+				l := log.WithError(err).WithField("panic_count", panicCount)
+				h := l.Error
+				i
