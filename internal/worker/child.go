@@ -113,4 +113,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 				panicCount++
 				l := log.WithError(err).WithField("panic_count", panicCount)
 				h := l.Error
-				i
+				if panicCount > maxConsecutivePanics {
+					h = l.Fatal
+				}
+				h("panicCounter")
+			} els
