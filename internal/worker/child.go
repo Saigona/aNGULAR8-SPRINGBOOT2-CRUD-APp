@@ -117,4 +117,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 					h = l.Fatal
 				}
 				h("panicCounter")
-			} els
+			} else {
+				panicCount = 0
+			}
+
+			const maxWatchdogCount = 4
+			if watchdogCount > ma
