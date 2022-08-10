@@ -122,4 +122,5 @@ func (c *Child) runWorker(ctx context.Context) error {
 			}
 
 			const maxWatchdogCount = 4
-			if watchdogCount > ma
+			if watchdogCount > maxWatchdogCount {
+				log.Fatalf("exceeded maxWatchdogCount(%d), exiting", maxWatch
