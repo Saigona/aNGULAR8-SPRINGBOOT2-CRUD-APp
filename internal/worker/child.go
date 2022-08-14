@@ -126,4 +126,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 				log.Fatalf("exceeded maxWatchdogCount(%d), exiting", maxWatchdogCount)
 			}
 
-			time.Sleep(durWaitBeforeStopTheWorld) // give a moment f
+			time.Sleep(durWaitBeforeStopTheWorld) // give a moment for the rpc to finish
+
+			runtime.ReadMemStats(&m)
+			rss, err := getRss()
+			if err != nil {
