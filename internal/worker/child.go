@@ -131,3 +131,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 			runtime.ReadMemStats(&m)
 			rss, err := getRss()
 			if err != nil {
+				log.WithError(err).Error("getRss")
+			}
+
+			allocsF := bToMb(m.Alloc)
+			rssF := bT
