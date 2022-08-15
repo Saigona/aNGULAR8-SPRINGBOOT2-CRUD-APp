@@ -135,4 +135,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 			}
 
 			allocsF := bToMb(m.Alloc)
-			rssF := bT
+			rssF := bToMb(rss)
+
+			f := log.Debugf
+			if rssF > float64(c.MemQuota) {
+				f = log.Panicf // force child to 
