@@ -139,4 +139,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 
 			f := log.Debugf
 			if rssF > float64(c.MemQuota) {
-				f = log.Panicf // force child to 
+				f = log.Panicf // force child to restart (or perhaps use a panic handler)
+			}
+			f("alloc size %.2fmb; rss size
