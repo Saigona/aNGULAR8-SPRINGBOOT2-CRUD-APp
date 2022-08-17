@@ -147,4 +147,4 @@ func (c *Child) runWorker(ctx context.Context) error {
 	}()
 
 	for ctx.Err() == nil {
-		// NB: this does n
+		// NB: this does not support multiple client connections, all clients share the same parent Worker
