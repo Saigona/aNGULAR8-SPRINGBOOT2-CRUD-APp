@@ -155,4 +155,7 @@ func (c *Child) runWorker(ctx context.Context) error {
 			defer close(fds)
 
 			var wg sync.WaitGroup
-			defer wg.W
+			defer wg.Wait()
+
+			server := rpc.NewServer()
+			segApi := c.Handler(ctx).(*segment.
