@@ -158,4 +158,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 			defer wg.Wait()
 
 			server := rpc.NewServer()
-			segApi := c.Handler(ctx).(*segment.
+			segApi := c.Handler(ctx).(*segment.GoAV)
+			segApi.FDs = fds
+
+			err = server.Register(segApi)
+			if err != n
