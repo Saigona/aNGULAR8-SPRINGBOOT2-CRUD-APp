@@ -162,4 +162,8 @@ func (c *Child) runWorker(ctx context.Context) error {
 			segApi.FDs = fds
 
 			err = server.Register(segApi)
-			if err != n
+			if err != nil {
+				log.WithError(err).Fatal("server.Register")
+			}
+
+			conn, err := listene
