@@ -166,4 +166,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 				log.WithError(err).Fatal("server.Register")
 			}
 
-			conn, err := listene
+			conn, err := listener.Accept()
+			if err != nil {
+				return errors.Wrap(err, "apiConn = list
