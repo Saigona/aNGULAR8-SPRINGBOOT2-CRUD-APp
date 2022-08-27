@@ -173,4 +173,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 			apiConn := conn.(*net.UnixConn)
 
 			wg.Add(1)
-			go func
+			go func() {
+				defer wg.Done()
+				server.ServeConn(apiConn)
+			}()
+
+			conn, err = listener.Ac
