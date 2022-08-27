@@ -168,4 +168,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 
 			conn, err := listener.Accept()
 			if err != nil {
-				return errors.Wrap(err, "apiConn = list
+				return errors.Wrap(err, "apiConn = listener.Accept")
+			}
+			apiConn := conn.(*net.UnixConn)
+
+			wg.Add(1)
+			go func
