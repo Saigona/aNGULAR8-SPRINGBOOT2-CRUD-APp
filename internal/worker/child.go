@@ -183,4 +183,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 				return errors.Wrap(err, "fdConn = listener.Accept")
 			}
 
-			wg.Ad
+			wg.Add(1)
+			go func() {
+				defer wg.Done()
+
+				fdConn := conn.(*net.UnixConn)
+				for c
