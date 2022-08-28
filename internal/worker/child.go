@@ -178,4 +178,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 				server.ServeConn(apiConn)
 			}()
 
-			conn, err = listener.Ac
+			conn, err = listener.Accept()
+			if err != nil {
+				return errors.Wrap(err, "fdConn = listener.Accept")
+			}
+
+			wg.Ad
