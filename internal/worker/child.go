@@ -193,4 +193,7 @@ func (c *Child) runWorker(ctx context.Context) error {
 					fd, err := unixmsg.RecvFd(fdConn)
 
 					if err != nil {
-						log.W
+						log.WithError(err).Warn("unixmsg.RecvFd")
+						return
+					}
+					log.Infof("uni
