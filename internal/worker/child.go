@@ -188,4 +188,9 @@ func (c *Child) runWorker(ctx context.Context) error {
 				defer wg.Done()
 
 				fdConn := conn.(*net.UnixConn)
-				for c
+				for ctx.Err() == nil {
+
+					fd, err := unixmsg.RecvFd(fdConn)
+
+					if err != nil {
+						log.W
