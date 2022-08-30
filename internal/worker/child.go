@@ -196,4 +196,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 						log.WithError(err).Warn("unixmsg.RecvFd")
 						return
 					}
-					log.Infof("uni
+					log.Infof("unixmsg.RecvFd: %d", fd)
+					// push fds into a channel, danger may deadlock
+					select
