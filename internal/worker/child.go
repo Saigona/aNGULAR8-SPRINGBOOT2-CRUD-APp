@@ -198,4 +198,10 @@ func (c *Child) runWorker(ctx context.Context) error {
 					}
 					log.Infof("unixmsg.RecvFd: %d", fd)
 					// push fds into a channel, danger may deadlock
-					select
+					select {
+					case <-ctx.Done():
+						return
+					case fds <- fd:
+					}
+				}
+	
