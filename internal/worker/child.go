@@ -204,4 +204,15 @@ func (c *Child) runWorker(ctx context.Context) error {
 					case fds <- fd:
 					}
 				}
-	
+			}()
+
+			return nil
+		}()
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (
