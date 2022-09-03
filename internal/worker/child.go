@@ -217,4 +217,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 
 func (c *Child) Handler(ctx context.Context) segment.Handler {
 	return &segment.GoAV{
-		Co
+		Context:        ctx,
+		VerboseDecoder: true, // TODO pass flags
+		RecvUnix
