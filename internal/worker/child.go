@@ -215,4 +215,6 @@ func (c *Child) runWorker(ctx context.Context) error {
 	return nil
 }
 
-func (
+func (c *Child) Handler(ctx context.Context) segment.Handler {
+	return &segment.GoAV{
+		Co
