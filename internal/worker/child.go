@@ -219,4 +219,10 @@ func (c *Child) Handler(ctx context.Context) segment.Handler {
 	return &segment.GoAV{
 		Context:        ctx,
 		VerboseDecoder: true, // TODO pass flags
-		RecvUnix
+		RecvUnixMsg:    true,
+		DoneCB:         c.doneCB,
+	}
+}
+
+func (c *Child) doneCB(err error) {
+	c.memstatsC
