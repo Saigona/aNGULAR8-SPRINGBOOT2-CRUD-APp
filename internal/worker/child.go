@@ -225,4 +225,9 @@ func (c *Child) Handler(ctx context.Context) segment.Handler {
 }
 
 func (c *Child) doneCB(err error) {
-	c.memstatsC
+	c.memstatsC <- err
+}
+
+func fromFD(fd uintptr) (f *os.File, err error) {
+	f = os.NewFile(uintptr(fd), "unix")
+	if f == n
