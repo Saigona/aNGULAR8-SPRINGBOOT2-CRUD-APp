@@ -230,4 +230,8 @@ func (c *Child) doneCB(err error) {
 
 func fromFD(fd uintptr) (f *os.File, err error) {
 	f = os.NewFile(uintptr(fd), "unix")
-	if f == n
+	if f == nil {
+		err = fmt.Errorf("nil for fd %d", fd)
+	}
+	return
+}
