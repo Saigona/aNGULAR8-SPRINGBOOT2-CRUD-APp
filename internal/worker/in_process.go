@@ -15,4 +15,7 @@ func (ip *InProcess) Start(ctx context.Context) error {
 	return nil
 }
 
-func
+func (ip *InProcess) Restart(ctx context.Context) {
+	log := logger.Entry(ctx)
+
+	log.Warn(
