@@ -18,4 +18,7 @@ func (ip *InProcess) Start(ctx context.Context) error {
 func (ip *InProcess) Restart(ctx context.Context) {
 	log := logger.Entry(ctx)
 
-	log.Warn(
+	log.Warn("Restarting an in process worker not supported.")
+}
+
+func (ip *InProcess) Handler(ctx context.Context) 
