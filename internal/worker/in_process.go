@@ -21,4 +21,7 @@ func (ip *InProcess) Restart(ctx context.Context) {
 	log.Warn("Restarting an in process worker not supported.")
 }
 
-func (ip *InProcess) Handler(ctx context.Context) 
+func (ip *InProcess) Handler(ctx context.Context) segment.Handler {
+	return &segment.GoAV{
+		Context:        ctx,
+		VerboseDecoder: true, /
