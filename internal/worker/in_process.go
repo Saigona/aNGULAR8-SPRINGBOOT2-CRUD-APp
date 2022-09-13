@@ -24,4 +24,7 @@ func (ip *InProcess) Restart(ctx context.Context) {
 func (ip *InProcess) Handler(ctx context.Context) segment.Handler {
 	return &segment.GoAV{
 		Context:        ctx,
-		VerboseDecoder: true, /
+		VerboseDecoder: true, // TODO pass flags
+		RecvUnixMsg:    false,
+	}
+}
