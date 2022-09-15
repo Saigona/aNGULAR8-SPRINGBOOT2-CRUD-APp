@@ -11,4 +11,5 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/WIZARDISHUNGRY
+	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
+	"github.com/WIZARDISHUNGRY/hls-await/internal/seg
