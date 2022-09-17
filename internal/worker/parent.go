@@ -12,4 +12,8 @@ import (
 	"time"
 
 	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
-	"github.com/WIZARDISHUNGRY/hls-await/internal/seg
+	"github.com/WIZARDISHUNGRY/hls-await/internal/segment"
+	"github.com/WIZARDISHUNGRY/hls-await/pkg/unixmsg"
+	"github.com/pkg/errors"
+)
+
