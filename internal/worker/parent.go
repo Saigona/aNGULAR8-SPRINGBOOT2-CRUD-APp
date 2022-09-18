@@ -17,3 +17,8 @@ import (
 	"github.com/pkg/errors"
 )
 
+type Parent struct {
+	once         sync.Once
+	mutex        sync.RWMutex
+	cmd          *exec.Cmd
+	li
