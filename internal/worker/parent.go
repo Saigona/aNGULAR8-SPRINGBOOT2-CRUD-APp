@@ -24,4 +24,9 @@ type Parent struct {
 	listener     *net.UnixListener
 	client       *rpc.Client
 	conn, connFD *net.UnixConn
-	launchCoun
+	launchCount  int
+	lastLaunch   time.Time
+	context      context.Context
+}
+
+func (p *Par
