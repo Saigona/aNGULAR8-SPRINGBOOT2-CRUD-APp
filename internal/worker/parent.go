@@ -21,4 +21,7 @@ type Parent struct {
 	once         sync.Once
 	mutex        sync.RWMutex
 	cmd          *exec.Cmd
-	li
+	listener     *net.UnixListener
+	client       *rpc.Client
+	conn, connFD *net.UnixConn
+	launchCoun
