@@ -29,4 +29,8 @@ type Parent struct {
 	context      context.Context
 }
 
-func (p *Par
+func (p *Parent) Start(ctx context.Context) error {
+
+	var retErr error
+	p.once.Do(func() {
+		retErr =
