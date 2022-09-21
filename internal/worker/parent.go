@@ -33,4 +33,12 @@ func (p *Parent) Start(ctx context.Context) error {
 
 	var retErr error
 	p.once.Do(func() {
-		retErr =
+		retErr = p.spawnChild(ctx)
+		if retErr == nil {
+			go p.loop(ctx)
+		}
+	})
+	return retErr
+}
+
+func (p *Parent
