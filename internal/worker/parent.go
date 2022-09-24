@@ -41,4 +41,6 @@ func (p *Parent) Start(ctx context.Context) error {
 	return retErr
 }
 
-func (p *Parent
+func (p *Parent) closeChild(ctx context.Context) error {
+	// PRE: must own write mutex
+	if p.clien
