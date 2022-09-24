@@ -43,4 +43,10 @@ func (p *Parent) Start(ctx context.Context) error {
 
 func (p *Parent) closeChild(ctx context.Context) error {
 	// PRE: must own write mutex
-	if p.clien
+	if p.client != nil {
+		p.client.Close()
+	}
+	if p.conn != nil {
+		p.conn.Close()
+	}
+	if p.connFD !=
