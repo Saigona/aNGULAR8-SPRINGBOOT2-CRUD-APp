@@ -49,4 +49,8 @@ func (p *Parent) closeChild(ctx context.Context) error {
 	if p.conn != nil {
 		p.conn.Close()
 	}
-	if p.connFD !=
+	if p.connFD != nil {
+		p.connFD.Close()
+	}
+	if p.listener != nil {
+		p.listener.Close()
