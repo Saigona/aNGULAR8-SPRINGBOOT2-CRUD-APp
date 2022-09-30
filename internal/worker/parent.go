@@ -61,4 +61,8 @@ func (p *Parent) closeChild(ctx context.Context) error {
 	return nil
 }
 
-func (p *Parent) Restart(
+func (p *Parent) Restart(ctx context.Context) {
+	p.mutex.RLock()
+	cmd := p.cmd
+	p.mutex.RUnlock()
+	p.nicely
