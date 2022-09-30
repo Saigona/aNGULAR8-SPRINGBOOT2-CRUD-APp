@@ -54,3 +54,11 @@ func (p *Parent) closeChild(ctx context.Context) error {
 	}
 	if p.listener != nil {
 		p.listener.Close()
+	}
+
+	p.nicelyKill(ctx, p.cmd) // kick the process
+
+	return nil
+}
+
+func (p *Parent) Restart(
