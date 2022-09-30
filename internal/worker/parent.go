@@ -65,4 +65,7 @@ func (p *Parent) Restart(ctx context.Context) {
 	p.mutex.RLock()
 	cmd := p.cmd
 	p.mutex.RUnlock()
-	p.nicely
+	p.nicelyKill(ctx, cmd)
+}
+
+func (p *Parent) nicelyKill(ctx context.Context, cmd *exec.C
