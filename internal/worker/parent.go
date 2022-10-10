@@ -68,4 +68,7 @@ func (p *Parent) Restart(ctx context.Context) {
 	p.nicelyKill(ctx, cmd)
 }
 
-func (p *Parent) nicelyKill(ctx context.Context, cmd *exec.C
+func (p *Parent) nicelyKill(ctx context.Context, cmd *exec.Cmd) {
+	log := logger.Entry(ctx)
+	// PRE: must own write mutex
+	if cmd != nil && cmd.Process != nil {
