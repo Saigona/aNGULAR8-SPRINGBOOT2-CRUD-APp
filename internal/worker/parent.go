@@ -72,3 +72,6 @@ func (p *Parent) nicelyKill(ctx context.Context, cmd *exec.Cmd) {
 	log := logger.Entry(ctx)
 	// PRE: must own write mutex
 	if cmd != nil && cmd.Process != nil {
+		log.Info("Signaling child to exit")
+		cmd.Process.Signal(syscall.SIGTERM)
+		time.Sleep(3 * 
