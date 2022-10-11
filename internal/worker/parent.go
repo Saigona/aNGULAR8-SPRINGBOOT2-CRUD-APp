@@ -74,4 +74,9 @@ func (p *Parent) nicelyKill(ctx context.Context, cmd *exec.Cmd) {
 	if cmd != nil && cmd.Process != nil {
 		log.Info("Signaling child to exit")
 		cmd.Process.Signal(syscall.SIGTERM)
-		time.Sleep(3 * 
+		time.Sleep(3 * time.Second)
+		cmd.Process.Kill()
+	}
+}
+
+func (p *Parent) spawnChild(ctx context.Context)
