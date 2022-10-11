@@ -79,4 +79,8 @@ func (p *Parent) nicelyKill(ctx context.Context, cmd *exec.Cmd) {
 	}
 }
 
-func (p *Parent) spawnChild(ctx context.Context)
+func (p *Parent) spawnChild(ctx context.Context) (err error) {
+	log := logger.Entry(ctx)
+
+	defer func() {
+		l := log.WithField("co
