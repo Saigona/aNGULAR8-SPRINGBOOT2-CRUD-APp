@@ -85,4 +85,7 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	defer func() {
 		l := log.WithField("count", p.launchCount)
 		if !p.lastLaunch.IsZero() {
-			l = l.WithField("lifetime", time.Now()
+			l = l.WithField("lifetime", time.Now().Sub(p.lastLaunch))
+		}
+		p.lastLaunch = time.Now()
+		l.WithError(err).I
