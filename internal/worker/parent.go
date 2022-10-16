@@ -88,4 +88,9 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 			l = l.WithField("lifetime", time.Now().Sub(p.lastLaunch))
 		}
 		p.lastLaunch = time.Now()
-		l.WithError(err).I
+		l.WithError(err).Infof("spawnChild")
+	}()
+	p.mutex.Lock()
+	defer p.mutex.Unlock()
+
+	p.closeChi
