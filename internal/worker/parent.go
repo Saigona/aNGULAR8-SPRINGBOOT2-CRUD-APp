@@ -93,4 +93,9 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	p.mutex.Lock()
 	defer p.mutex.Unlock()
 
-	p.closeChi
+	p.closeChild(ctx)
+
+	args := append([]string{}, os.Args[1:]...)
+	args = append(args, "-worker")
+
+	
