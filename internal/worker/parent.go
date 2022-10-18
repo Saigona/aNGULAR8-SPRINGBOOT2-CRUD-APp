@@ -98,4 +98,7 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	args := append([]string{}, os.Args[1:]...)
 	args = append(args, "-worker")
 
-	
+	// rpc
+	ul, err := net.ListenUnix("unix", &net.UnixAddr{})
+	if err != nil {
+		return e
