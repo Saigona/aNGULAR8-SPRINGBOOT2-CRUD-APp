@@ -110,4 +110,6 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 		return err
 	}
 
-	cmd
+	cmd := exec.CommandContext(ctx, os.Args[0], args...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Std
