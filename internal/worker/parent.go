@@ -121,3 +121,8 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 
 	if err := cmd.Start(); err != nil {
 		return fmt.Errorf("couldn't spawn child: %w", err)
+	}
+	p.launchCount++
+	p.cmd = cmd
+
+	// NB: all streams will share the same diale
