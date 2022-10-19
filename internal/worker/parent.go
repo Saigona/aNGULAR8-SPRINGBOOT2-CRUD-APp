@@ -112,4 +112,11 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 
 	cmd := exec.CommandContext(ctx, os.Args[0], args...)
 	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Std
+	cmd.Stderr = os.Stderr
+
+	err = setExtraFile(cmd, WORKER_FD, f)
+	if err != nil {
+		return err
+	}
+
+	if 
