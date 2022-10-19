@@ -119,4 +119,5 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 		return err
 	}
 
-	if 
+	if err := cmd.Start(); err != nil {
+		return fmt.Errorf("couldn't spawn child: %w", err)
