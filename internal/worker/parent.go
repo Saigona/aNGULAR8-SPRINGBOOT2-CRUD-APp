@@ -125,4 +125,7 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	p.launchCount++
 	p.cmd = cmd
 
-	// NB: all streams will share the same diale
+	// NB: all streams will share the same dialed connection
+
+	conn, err := net.DialUnix("unix", nil, ul.Addr().(*net.UnixAddr))
+	i
