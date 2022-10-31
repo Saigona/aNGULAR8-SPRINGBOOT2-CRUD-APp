@@ -139,4 +139,9 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	}
 	p.connFD = conn2
 
-	
+	p.client = rpc.NewClient(conn)
+
+	return nil
+}
+
+func (p *Parent) loop(ctx con
