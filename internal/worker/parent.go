@@ -133,4 +133,10 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	}
 	p.conn = conn
 
-	conn2, err := net.DialUnix("unix", nil,
+	conn2, err := net.DialUnix("unix", nil, ul.Addr().(*net.UnixAddr))
+	if err != nil {
+		return err
+	}
+	p.connFD = conn2
+
+	
