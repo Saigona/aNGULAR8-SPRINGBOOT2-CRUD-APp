@@ -128,4 +128,9 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	// NB: all streams will share the same dialed connection
 
 	conn, err := net.DialUnix("unix", nil, ul.Addr().(*net.UnixAddr))
-	i
+	if err != nil {
+		return err
+	}
+	p.conn = conn
+
+	conn2, err := net.DialUnix("unix", nil,
