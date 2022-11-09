@@ -144,4 +144,8 @@ func (p *Parent) spawnChild(ctx context.Context) (err error) {
 	return nil
 }
 
-func (p *Parent) loop(ctx con
+func (p *Parent) loop(ctx context.Context) {
+	log := logger.Entry(ctx)
+
+	defer func() {
+		p.mute
