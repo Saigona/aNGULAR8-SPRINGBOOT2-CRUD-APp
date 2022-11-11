@@ -148,4 +148,9 @@ func (p *Parent) loop(ctx context.Context) {
 	log := logger.Entry(ctx)
 
 	defer func() {
-		p.mute
+		p.mutex.Lock()
+		defer p.mutex.Unlock()
+		if p.cmd != nil {
+			p.cmd.Wait()
+		}
+		p.mutex.Lock()
