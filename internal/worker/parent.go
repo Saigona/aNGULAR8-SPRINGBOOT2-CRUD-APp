@@ -154,3 +154,8 @@ func (p *Parent) loop(ctx context.Context) {
 			p.cmd.Wait()
 		}
 		p.mutex.Lock()
+		defer p.mutex.Unlock()
+		p.closeChild(ctx)
+	}()
+	for ctx.Err() == nil {
+		p.mutex.
