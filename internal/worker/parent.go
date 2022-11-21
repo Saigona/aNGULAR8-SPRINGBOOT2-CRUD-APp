@@ -158,4 +158,8 @@ func (p *Parent) loop(ctx context.Context) {
 		p.closeChild(ctx)
 	}()
 	for ctx.Err() == nil {
-		p.mutex.
+		p.mutex.RLock()
+		cmd := p.cmd
+		p.mutex.RUnlock()
+		err := cmd.Wait()
+		if errors.
