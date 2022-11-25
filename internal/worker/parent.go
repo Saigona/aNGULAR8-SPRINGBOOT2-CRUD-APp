@@ -162,4 +162,8 @@ func (p *Parent) loop(ctx context.Context) {
 		cmd := p.cmd
 		p.mutex.RUnlock()
 		err := cmd.Wait()
-		if errors.
+		if errors.Is(err, context.Canceled) || ctx.Err() != nil {
+			break
+		}
+
+		log.WithError(err).WithField("exi
