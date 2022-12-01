@@ -166,4 +166,5 @@ func (p *Parent) loop(ctx context.Context) {
 			break
 		}
 
-		log.WithError(err).WithField("exi
+		log.WithError(err).WithField("exit_code", p.cmd.ProcessState.ExitCode()).Info("respawning child process")
+		err = p.spawn
