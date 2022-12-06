@@ -170,4 +170,9 @@ func (p *Parent) loop(ctx context.Context) {
 		err = p.spawnChild(ctx)
 		if err != nil {
 			log.WithError(err).Error("spawn loop")
-	
+			time.Sleep(time.Second) // TODO change to backoff
+		}
+	}
+}
+
+func setExtraFile(cmd *exec.Cmd, 
