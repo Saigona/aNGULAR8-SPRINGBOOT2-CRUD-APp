@@ -167,4 +167,7 @@ func (p *Parent) loop(ctx context.Context) {
 		}
 
 		log.WithError(err).WithField("exit_code", p.cmd.ProcessState.ExitCode()).Info("respawning child process")
-		err = p.spawn
+		err = p.spawnChild(ctx)
+		if err != nil {
+			log.WithError(err).Error("spawn loop")
+	
