@@ -175,4 +175,5 @@ func (p *Parent) loop(ctx context.Context) {
 	}
 }
 
-func setExtraFile(cmd *exec.Cmd, 
+func setExtraFile(cmd *exec.Cmd, fd int, f *os.File) error {
+	extraFilesOffset := fd - 3 // stdin, stout, stderr, e
