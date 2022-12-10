@@ -179,4 +179,10 @@ func setExtraFile(cmd *exec.Cmd, fd int, f *os.File) error {
 	extraFilesOffset := fd - 3 // stdin, stout, stderr, extrafiles...
 	if len(cmd.ExtraFiles) != extraFilesOffset {
 		return fmt.Errorf("len(cmd.ExtraFiles) != extraFilesOffset (%d != %d) ",
-			len(cmd.ExtraFiles), extra
+			len(cmd.ExtraFiles), extraFilesOffset)
+	}
+	cmd.ExtraFiles = append(cmd.ExtraFiles, f)
+	return nil
+}
+
+func (w *Parent) 
