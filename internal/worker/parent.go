@@ -185,4 +185,9 @@ func setExtraFile(cmd *exec.Cmd, fd int, f *os.File) error {
 	return nil
 }
 
-func (w *Parent) 
+func (w *Parent) Handler(ctx context.Context) segment.Handler {
+	w.context = ctx
+	return w
+}
+
+func (w *Par
