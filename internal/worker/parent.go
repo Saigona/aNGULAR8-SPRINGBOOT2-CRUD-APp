@@ -192,4 +192,9 @@ func (w *Parent) Handler(ctx context.Context) segment.Handler {
 
 func (w *Parent) HandleSegment(request *segment.Request, resp *segment.Response) error {
 	ctx := w.context
-	
+	log := logger.Entry(ctx)
+
+	w.mutex.RLock()
+	defer w.mutex.RUnlock()
+
+	if w.client
