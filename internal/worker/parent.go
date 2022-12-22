@@ -190,4 +190,6 @@ func (w *Parent) Handler(ctx context.Context) segment.Handler {
 	return w
 }
 
-func (w *Par
+func (w *Parent) HandleSegment(request *segment.Request, resp *segment.Response) error {
+	ctx := w.context
+	
