@@ -197,4 +197,8 @@ func (w *Parent) HandleSegment(request *segment.Request, resp *segment.Response)
 	w.mutex.RLock()
 	defer w.mutex.RUnlock()
 
-	if w.client
+	if w.client == nil {
+		return errors.New("rpc client not set yet")
+	}
+
+	err
