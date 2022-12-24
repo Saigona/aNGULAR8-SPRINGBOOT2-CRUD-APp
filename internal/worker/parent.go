@@ -206,4 +206,5 @@ func (w *Parent) HandleSegment(request *segment.Request, resp *segment.Response)
 		return errors.Wrap(err, "unixmsg.SendFd")
 	}
 	log.Infof("transmitted fd %d", request.FD)
-	return w.client.Call("GoAV.HandleSegme
+	return w.client.Call("GoAV.HandleSegment", request, resp)
+}
