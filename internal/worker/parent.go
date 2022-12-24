@@ -203,4 +203,7 @@ func (w *Parent) HandleSegment(request *segment.Request, resp *segment.Response)
 
 	err := unixmsg.SendFd(w.connFD, request.FD)
 	if err != nil {
-		return errors.Wrap(err, "unixmsg.SendFd
+		return errors.Wrap(err, "unixmsg.SendFd")
+	}
+	log.Infof("transmitted fd %d", request.FD)
+	return w.client.Call("GoAV.HandleSegme
