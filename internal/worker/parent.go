@@ -201,4 +201,6 @@ func (w *Parent) HandleSegment(request *segment.Request, resp *segment.Response)
 		return errors.New("rpc client not set yet")
 	}
 
-	err
+	err := unixmsg.SendFd(w.connFD, request.FD)
+	if err != nil {
+		return errors.Wrap(err, "unixmsg.SendFd
