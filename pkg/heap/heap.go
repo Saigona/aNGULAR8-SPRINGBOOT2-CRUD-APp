@@ -48,3 +48,25 @@ func (h *Heap[T]) up(jj int) {
 
 func (h *Heap[T]) down() {
 	n := h.Len() - 1
+	i1 := 0
+	for {
+		j1 := left(i1)
+		if j1 >= n || j1 < 0 {
+			break
+		}
+		j := j1
+		j2 := right(i1)
+		if j2 < n && h.comp(h.data[j2], h.data[j1]) {
+			j = j2
+		}
+		if !h.comp(h.data[j], h.data[i1]) {
+			break
+		}
+		h.swap(i1, j)
+		i1 = j
+	}
+}
+
+func parent(i int) int { return (i - 1) / 2 }
+func left(i int) int   { return (i * 2) + 1 }
+func right(i int) int  { return left(i) + 1 }

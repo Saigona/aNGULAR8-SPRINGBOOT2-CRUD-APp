@@ -1,0 +1,55 @@
+
+package proxy
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"net"
+	"net/http"
+	"net/http/httputil"
+	"net/url"
+	"sync"
+	"time"
+
+	"github.com/WIZARDISHUNGRY/hls-await/internal/logger"
+	"github.com/die-net/lrucache"
+	"github.com/gregjones/httpcache"
+)
+
+const ttl = time.Hour
+const maxBytes = 1024 * 1024 * 1024 * 1024 // 1gig
+
+func NewSingleHostReverseProxy(ctx context.Context, target *url.URL, flagDumpHttp bool) (*url.URL, error) {
+	rp := httputil.NewSingleHostReverseProxy(target)
+	old := rp.Director
+	director := func(req *http.Request) {
+		req.Header = make(http.Header)
+		// TODO factor out
+		req.Header.Set("Referer", "https://kcnawatch.org/korea-central-tv-livestream/") // TODO pass
+		req.Header.Set("Accept", "*/*")
+		// req.Header.Set("Cookie", " __qca=P0-44019880-1616793366216; _ga=GA1.2.978268718.1616793363; _gid=GA1.2.523786624.1616793363")
+		req.Header.Set("Accept-Language", "en-us")
+		req.Header.Set("Accept-Encoding", "identity")
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15")
+		// req.Header.Set("X-Playback-Session-Id", "F896728B-8636-4BB1-B4FF-1B235EB4ED9E")
+		req.Header.Set("host", target.Host)
+		req.Host = target.Host
+		if flagDumpHttp { // TODO
+			if s, err := httputil.DumpRequest(req, false); err != nil {
+				panic(err)
+			} else {
+				log := logger.Entry(ctx)
+				log.Println("proxy dumping ", string(s))
+			}
+		}
+
+		old(req)
+	}
+	rp.Director = director
+
+	c := lrucache.New(maxBytes, int64(ttl.Seconds()))
+
+	rp.Transport = httpcache.NewTransport(c)
+	// use outgoing socket addr, so we can pass the same url to roku and not fetch segments twice (save bandwidth)
+	l, err := net.Listen("tcp", fmt.Sprintf("%s:0", getIP().String()))
