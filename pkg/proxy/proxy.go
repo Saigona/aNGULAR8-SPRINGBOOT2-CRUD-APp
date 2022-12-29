@@ -53,3 +53,38 @@ func NewSingleHostReverseProxy(ctx context.Context, target *url.URL, flagDumpHtt
 	rp.Transport = httpcache.NewTransport(c)
 	// use outgoing socket addr, so we can pass the same url to roku and not fetch segments twice (save bandwidth)
 	l, err := net.Listen("tcp", fmt.Sprintf("%s:0", getIP().String()))
+	if err != nil {
+		return nil, err
+	}
+	go func() { http.Serve(l, rp) }()
+	go func() {
+		<-ctx.Done()
+		l.Close()
+	}()
+	u := *target
+	a := l.Addr().(*net.TCPAddr)
+	u.Host = fmt.Sprintf("%s:%d", a.IP.String(), a.Port)
+	u.Scheme = "http"
+	return &u, nil
+}
+
+// Get preferred outbound ip of this machine
+var (
+	ip     net.IP
+	ipOnce sync.Once
+)
+
+func getIP() net.IP {
+	ipOnce.Do(func() {
+		conn, err := net.Dial("udp", "8.8.8.8:80")
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer conn.Close()
+
+		localAddr := conn.LocalAddr().(*net.UDPAddr)
+
+		ip = localAddr.IP
+	})
+	return ip
+}
