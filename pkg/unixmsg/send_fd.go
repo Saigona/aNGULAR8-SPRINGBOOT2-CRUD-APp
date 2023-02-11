@@ -9,4 +9,7 @@ import (
 // https://github.com/mindreframer/golang-stuff/blob/master/github.com/youtube/vitess/go/umgmt/fdpass.go
 // see also TestPassFD
 
-func SendFd(conn *net.UnixConn, fd 
+func SendFd(conn *net.UnixConn, fd uintptr) error {
+	rights := syscall.UnixRights(int(fd))
+	dummy := []byte("x")
+	n, oobn,
