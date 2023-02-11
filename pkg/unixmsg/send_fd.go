@@ -12,4 +12,6 @@ import (
 func SendFd(conn *net.UnixConn, fd uintptr) error {
 	rights := syscall.UnixRights(int(fd))
 	dummy := []byte("x")
-	n, oobn,
+	n, oobn, err := conn.WriteMsgUnix(dummy, rights, nil)
+	if err != nil {
+		return fmt.Errorf(
