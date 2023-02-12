@@ -14,4 +14,7 @@ func SendFd(conn *net.UnixConn, fd uintptr) error {
 	dummy := []byte("x")
 	n, oobn, err := conn.WriteMsgUnix(dummy, rights, nil)
 	if err != nil {
-		return fmt.Errorf(
+		return fmt.Errorf("err %v", err)
+	}
+	if n != len(dummy) {
+		return fmt.Errorf("short wri
