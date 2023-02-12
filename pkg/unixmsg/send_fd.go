@@ -20,4 +20,9 @@ func SendFd(conn *net.UnixConn, fd uintptr) error {
 		return fmt.Errorf("short write %v", conn)
 	}
 	if oobn != len(rights) {
-		return fmt.Errorf("short oob write 
+		return fmt.Errorf("short oob write %v", conn)
+	}
+	return nil
+}
+
+func RecvFd(conn *net.UnixConn) (uintptr, er
