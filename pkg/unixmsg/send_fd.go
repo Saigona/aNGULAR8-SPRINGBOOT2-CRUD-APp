@@ -25,4 +25,7 @@ func SendFd(conn *net.UnixConn, fd uintptr) error {
 	return nil
 }
 
-func RecvFd(conn *net.UnixConn) (uintptr, er
+func RecvFd(conn *net.UnixConn) (uintptr, error) {
+	buf := make([]byte, 32)
+	oob := make([]byte, 32)
+	_, oobn, _, _, err
