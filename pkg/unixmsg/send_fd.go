@@ -28,4 +28,8 @@ func SendFd(conn *net.UnixConn, fd uintptr) error {
 func RecvFd(conn *net.UnixConn) (uintptr, error) {
 	buf := make([]byte, 32)
 	oob := make([]byte, 32)
-	_, oobn, _, _, err
+	_, oobn, _, _, err := conn.ReadMsgUnix(buf, oob)
+	if err != nil {
+		return 0, err
+	}
+	scms, err := sysca
