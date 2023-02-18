@@ -32,4 +32,6 @@ func RecvFd(conn *net.UnixConn) (uintptr, error) {
 	if err != nil {
 		return 0, err
 	}
-	scms, err := sysca
+	scms, err := syscall.ParseSocketControlMessage(oob[:oobn])
+	if err != nil {
+		return 0, fmt.Erro
