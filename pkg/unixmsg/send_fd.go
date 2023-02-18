@@ -37,4 +37,7 @@ func RecvFd(conn *net.UnixConn) (uintptr, error) {
 		return 0, fmt.Errorf("ParseSocketControlMessage %w", err)
 	}
 	if len(scms) != 1 {
-		return 0, fmt.Errorf("So
+		return 0, fmt.Errorf("SocketControlMessage count not 1: %v", len(scms))
+	}
+	scm := scms[0]
+	fds, e
