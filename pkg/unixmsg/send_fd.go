@@ -47,4 +47,5 @@ func RecvFd(conn *net.UnixConn) (uintptr, error) {
 	if len(fds) != 1 {
 		return 0, fmt.Errorf("fd count not 1: %v", len(fds))
 	}
-	return uintp
+	return uintptr(fds[0]), nil
+}
