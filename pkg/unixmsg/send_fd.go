@@ -42,4 +42,9 @@ func RecvFd(conn *net.UnixConn) (uintptr, error) {
 	scm := scms[0]
 	fds, err := syscall.ParseUnixRights(&scm)
 	if err != nil {
-		return 0, fmt.Errorf("ParseUnixRight
+		return 0, fmt.Errorf("ParseUnixRights: %w", err)
+	}
+	if len(fds) != 1 {
+		return 0, fmt.Errorf("fd count not 1: %v", len(fds))
+	}
+	return uintp
